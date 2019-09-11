@@ -1,8 +1,16 @@
-insert into Cliente values(112222,'dasdfsa@0','ssssss');
+insert into Cliente values(112222,'dasdfsa@0','ssssss');  no
 
-insert into Sucursal values(17,'dddd@0');
-insert into Sucursal values(20,'cccc@0');
+insert into Sucursal values(17,'dddd@0','07:10:00','22:00:00');
+insert into Sucursal values(20,'cccc@0','02:50:00','23:00:00');
+insert into Sucursal values(19,'diesi@0','05:30:00','24:00:00');
+insert into Sucursal values(12,'doce@0','08:59:00','22:00:00');
 
-insert into Vehiculo values('44ffwe',17,'2018-10-25');
 
-insert into Renta values(45,'112222','44ffwe','2014-10-25 20:00:00',20,'2015-10-25 20:00:00',17);
+insert into Direccion_sucursal values(17,'General cruz','Valparaiso','Valparaiso',228);
+insert into Direccion_sucursal values(20,'Alvarez','Valparaiso','Vina del mar',877);
+
+
+
+insert into Vehiculo values('44ffwe',17,'2018-10-25');  no
+
+insert into Renta values(45,'112222','44ffwe','2014-10-25 20:00:00',20,'2015-10-25 20:00:00',17);   no
