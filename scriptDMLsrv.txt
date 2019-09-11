@@ -1,0 +1,8 @@
+insert into Cliente values(112222,'dasdfsa@0','ssssss');
+
+insert into Sucursal values(17,'dddd@0');
+insert into Sucursal values(20,'cccc@0');
+
+insert into Vehiculo values('44ffwe',17,'2018-10-25');
+
+insert into Renta values(45,'112222','44ffwe','2014-10-25 20:00:00',20,'2015-10-25 20:00:00',17);
