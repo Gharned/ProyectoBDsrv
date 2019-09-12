@@ -1,16 +1,77 @@
-insert into Cliente values(112222,'dasdfsa@0','ssssss');  no
 
-insert into Sucursal values(17,'dddd@0','07:10:00','22:00:00');
-insert into Sucursal values(20,'cccc@0','02:50:00','23:00:00');
-insert into Sucursal values(19,'diesi@0','05:30:00','24:00:00');
-insert into Sucursal values(12,'doce@0','08:59:00','22:00:00');
+insert into Sucursal values(10,'general.c.v@gmail.com','07:10:00','22:00:00');
+insert into Sucursal values(20,'alvarez.v.v@gmail.com','02:50:00','23:00:00');
+insert into Sucursal values(30,'sandiego.s.s@gmail.com','05:30:00','24:00:00');
+insert into Sucursal values(40,'maipu.a.a@gmail.com','08:59:00','22:00:00');
+insert into Sucursal values(50,'chacabuco.a.c@gmail.com','08:59:00','22:00:00');
+insert into Sucursal values(60,'juanar.c.c@gmail.com','08:59:00','22:00:00');
+insert into Sucursal values(70,'cincoote.m.t@gmail.com','08:59:00','22:00:00');
+insert into Sucursal values(80,'lasheras.c.c@gmail.com','08:59:00','22:00:00');
+insert into Sucursal values(90,'espana.a.t@gmail.com','08:59:00','22:00:00');
+insert into Sucursal values(100,'avpedte.l.p@gmail.com','08:59:00','22:00:00');
 
-
-insert into Direccion_sucursal values(17,'General cruz','Valparaiso','Valparaiso',228);
+insert into Direccion_sucursal values(10,'General cruz','Valparaiso','Valparaiso',228);
 insert into Direccion_sucursal values(20,'Alvarez','Valparaiso','Vina del mar',877);
+insert into Direccion_sucursal values(30,'San Diego','Santiago','Santiago',1102);
+insert into Direccion_sucursal values(40,'Maipu','Antofagasta','Antofagasta',605);
+insert into Direccion_sucursal values(50,'Chacabuco','Atacama','Copiapo',812);
+insert into Direccion_sucursal values(60,'Juan Antonio Ríos','Coquimbo','Coquimbo',1640);
+insert into Direccion_sucursal values(70,'5 Ote.','Maule','Talca',1201);
+insert into Direccion_sucursal values(80,'Las heras','Concepcion','Concepcion',1001);
+insert into Direccion_sucursal values(90,'Espana','Araucania','Temuco',478);
+insert into Direccion_sucursal values(100,'Av. Pdte. Ibáñez','Los lagos','Puerto Montt',1431);
+
+insert into Cliente(rut_cliente, telefono, email, fecha_nac) values(19941255, 929304884, 'alex.toro.s25@gmail.com', '1998-06-25');
+insert into Cliente(rut_cliente, telefono, email, fecha_nac) values(19328308, 934823003, 'Juanito.Tojones@gmail.com', '1996-03-12');
+insert into Cliente(rut_cliente, telefono, email, fecha_nac) values(19887114, 942423701, 'sebita.33@gmail.com', '1998-03-01');
+insert into Cliente(rut_cliente, telefono, email, fecha_nac) values(19824957, 937918293, 'Pato.el.jugoso.hinojosa@gmail.com', '1230-05-02');
+insert into Cliente(rut_cliente, telefono, email, fecha_nac) values(20343124, 923482397, 'Facu.elFucking.Martinez@gmail.com', '1998-10-29');
+insert into Cliente(rut_cliente, telefono, email, fecha_nac) values(20010905, 986399270, 'Vale.raza.aria.clavijo@gmail.com', '1998-07-31');
+
+insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) values(19941255, 'Alex', 'Toro', 'Sepulveda');
+insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) values(19328308,'Juan', 'Valenzuela', 'Canto');
+insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) values(19887114, 'Sebastian', 'Medina', 'Guzman');
+insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) values(19824957, 'Patricio', 'Hinojosa', 'Godoy');
+insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) values(20343124, 'Facundo', 'Martinez', 'Gulle');
+insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) values(20010905, 'Valentina', 'Clavijo', 'Baack');
 
 
 
-insert into Vehiculo values('44ffwe',17,'2018-10-25');  no
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('HVYD21', '20', '2019-02-01', 'Chery' , 'Tiggo 5', 210000, 'SUV', 1);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('XD4913', '100', '2005-10-12', 'Chevrolet' , 'Aveo', 120000, 'Automovil', 0);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values(KLLD09, '30', '2019-02-01', 'Mitsubishi' , 'Lancer Evo', 300000, 'Automovil', 1);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values(XF3O13, '20', '2000-01-25', 'Subaru' , 'Impreza', 100000, 'Automovil', 1);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('ASSW11', '10', '2019-02-01', 'Ford' , 'F20', 400000, 'Camioneta', 1);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('NKSH67', '10', '2019-04-10', 'Hiundait' , 'Accent', 249000, 'AutoMovil', 1);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('ALOM25', '20', '2019-02-21', 'Honda' , 'CBR1000', 190000, 'Motocicleta Deportiva', 1);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('APEX21', '30', '2011-03-01', 'Audi' , 'A4', 255000, 'Automovil', 0);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('VTRW23', '100', '2019-01-03', 'Ford' , 'Fiesta', 300000, 'Automovil', 0);
+insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('FEFG35', '40', '2019-05-01', 'Yamaha' , 'NMAX', 90000, 'Scooter', 1);
 
-insert into Renta values(45,'112222','44ffwe','2014-10-25 20:00:00',20,'2015-10-25 20:00:00',17);   no
+
+
+
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_reitro, local_devolucion, region_devolucion, fecha_devolucion) values(20010905, 'ALOM25', 'Finalizada', 'General Cruz', 'Valparaiso', '2019-06-25 12:00:00', 'General Cruz', 'Valparaiso','2019-07-21 13:30:00');
+
+
+
+
+
+insert into Empleado values(5699666,10,'eliverto@gmail.com','Rentador','eli1063');
+insert into Empleado values(5234457,10,'alfonso@gmail.com','Rentador','eli1063');
+insert into Empleado values(5,10,'juan@gmail.com','Rentador','eli1063');
+insert into Empleado values(5,10,'pedro@gmail.com','Rentador','eli1063');
+insert into Empleado values(5,10,'arturo.v@gmail.com','Rentador','eli1063');
+insert into Empleado values(5,10,'alonso@gmail.com','Rentador','eli1063');
+insert into Empleado values(5,10,'michael@gmail.com','Rentador','eli1063');
+insert into Empleado values(5333333,10,'nate.g@gmail.com','Administrador','admin');
+insert into Empleado values(5888777,10,'frosties@gmail.com','Rentador','frosnike10');
+
+
+
+
+
+
+
+
+

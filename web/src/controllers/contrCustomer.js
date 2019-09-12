@@ -9,7 +9,7 @@ customer.infSuc=(req,res)=>{
                 res.json(err);
             }
             console.log(sucursales);
-            res.render('init',{
+            res.render('vPrincipal',{
                 data: sucursales,
             });
         });
