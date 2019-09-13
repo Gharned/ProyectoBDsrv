@@ -1,3 +1,13 @@
 git add *
 git commit -m "archivonuevo"
 git push -u origin master
+
+
+--------------------
+BD
+
+Definition data language(DDL):
+mysql -u root -p SRV < Desktop/Base-de-datos-y-programacion-web/ProyectoSRV/scriptDDLsrv.txt
+
+Definition manipulate lenguage(DML):
+mysql -u root -p SRV < Desktop/Base-de-datos-y-programacion-web/ProyectoSRV/scriptDMLsrv.txt

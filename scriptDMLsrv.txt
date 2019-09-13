@@ -37,41 +37,40 @@ insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) 
 
 
 
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('HVYD21', '20', '2019-02-01', 'Chery' , 'Tiggo 5', 210000, 'SUV', 1);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('XD4913', '100', '2005-10-12', 'Chevrolet' , 'Aveo', 120000, 'Automovil', 0);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values(KLLD09, '30', '2019-02-01', 'Mitsubishi' , 'Lancer Evo', 300000, 'Automovil', 1);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values(XF3O13, '20', '2000-01-25', 'Subaru' , 'Impreza', 100000, 'Automovil', 1);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('ASSW11', '10', '2019-02-01', 'Ford' , 'F20', 400000, 'Camioneta', 1);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('NKSH67', '10', '2019-04-10', 'Hiundait' , 'Accent', 249000, 'AutoMovil', 1);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('ALOM25', '20', '2019-02-21', 'Honda' , 'CBR1000', 190000, 'Motocicleta Deportiva', 1);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('APEX21', '30', '2011-03-01', 'Audi' , 'A4', 255000, 'Automovil', 0);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('VTRW23', '100', '2019-01-03', 'Ford' , 'Fiesta', 300000, 'Automovil', 0);
-insert into Vehiculo(matricula, id_sucursal, anio, marca, modelo, precio, tipo, estado, kilometraje) values('FEFG35', '40', '2019-05-01', 'Yamaha' , 'NMAX', 90000, 'Scooter', 1);
+insert into Vehiculo values('HVYD21',20,'SUV','rojo','Chery','Tiggo 5', '2019-02-01',120,210000, 1);
+insert into Vehiculo values('XD4913',100,'Automovil','blanco','Chevrolet', 'Aveo','2005-10-12',150,120000, 0);
+insert into Vehiculo values('KLLD09', 30,'Automovil','negro','Mitsubishi','Lancer Evo','2019-02-01',220,300000, 1);
+insert into Vehiculo values('XF3O13', 20,'Automovil','amarillo','Subaru','Impreza','2000-01-25',200, 100000, 1);
+insert into Vehiculo values('ASSW11',10,'Camioneta','negro','Ford','F20','2019-02-01',230,400000,1);
+insert into Vehiculo values('NKSH67',10,'AutoMovil','verde','Hiundait' ,'Accent','2019-04-10',180, 249000,  1);
+insert into Vehiculo values('ALOM25',20,'Motocicleta Deportiva','Honda','rojo','CBR1000', '2019-02-21',190, 190000,  1);
+insert into Vehiculo values('APEX21',30,'Automovil','negro','Audi','A4','2011-03-01',330,255000,  0);
+insert into Vehiculo values('VTRW23',100,'Automovil','plomo','Ford','Fiesta','2019-01-03',250, 300000, 0);
+insert into Vehiculo values('FEFG35',40,'Scooter','blanco','Yamaha','NMAX','2019-05-01',120,90000, 1);
 
 
 
-
-insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_reitro, local_devolucion, region_devolucion, fecha_devolucion) values(20010905, 'ALOM25', 'Finalizada', 'General Cruz', 'Valparaiso', '2019-06-25 12:00:00', 'General Cruz', 'Valparaiso','2019-07-21 13:30:00');
-
-
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(20010905, 'ALOM25', 'Finalizada', 10, 'Valparaiso', '2019-06-25 12:00:00', 10, 'Valparaiso','2019-07-21 13:30:00');
 
 
 
 insert into Empleado values(5699666,10,'eliverto@gmail.com','Rentador','eli1063');
-insert into Empleado values(5234457,10,'alfonso@gmail.com','Rentador','eli1063');
-insert into Empleado values(5,10,'juan@gmail.com','Rentador','eli1063');
-insert into Empleado values(5,10,'pedro@gmail.com','Rentador','eli1063');
-insert into Empleado values(5,10,'arturo.v@gmail.com','Rentador','eli1063');
-insert into Empleado values(5,10,'alonso@gmail.com','Rentador','eli1063');
-insert into Empleado values(5,10,'michael@gmail.com','Rentador','eli1063');
+insert into Empleado values(5234457,10,'alfonso@gmail.com','Rentador','alo8856');
+insert into Empleado values(5443443,20,'juan@gmail.com','Rentador','jsonRdirect2');
+insert into Empleado values(5225667,10,'pedro@gmail.com','Rentador','pdAutomatico16');
+insert into Empleado values(5345775,30,'arturo.v@gmail.com','Rentador','arturoTiene6');
+insert into Empleado values(5663865,10,'antonio@gmail.com','Rentador','antmanSinPoderes0');
+insert into Empleado values(5345774,10,'michael@gmail.com','Rentador','jacksonFive5');
 insert into Empleado values(5333333,10,'nate.g@gmail.com','Administrador','admin');
 insert into Empleado values(5888777,10,'frosties@gmail.com','Rentador','frosnike10');
 
-
-
-
-
-
-
-
+insert into Nombre_empleado values(5699666,'Eliverto','Goldlit','Reifeth');
+insert into Nombre_empleado values(5234457,'Alfonso','Munoz','Castro');
+insert into Nombre_empleado values(5443443,'Juan','Sepulveda','Castro');
+insert into Nombre_empleado values(5225667,'Pedro','Martinez','Gonzalez');
+insert into Nombre_empleado values(5345775,'Arturo','Soto','Soto');
+insert into Nombre_empleado values(5663865,'Antonio','Sanchez','Vargas');
+insert into Nombre_empleado values(5345774,'Michael','Cardenas','Gonzalez');
+insert into Nombre_empleado values(5333333,'Nate','Diaz','Tapia');
+insert into Nombre_empleado values(5888777,'Frosties','Rojas','Cortes');
 
