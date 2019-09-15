@@ -1,36 +1,57 @@
 <% include parts/_header %>
+<!--<div id="alert"></div>-->
 <!--
 <div class="h-25 d-inline-block">
     <img src="https://www.solofondos.com/wp-content/uploads/2016/01/Fondos-de-pantalla-4k-coches.jpg" class="img-fluid" alt="Responsive image">
 </div>
 -->
 <div class="container">
-    <form>
-        <fieldset>
-          <legend>Buscar Vehiculo en:</legend>
-          <div class="form-group">
-            <label for="exampleSelect1">Region retiro</label>
-            <select class="form-control" id="exampleSelect1">
-              <option>1 region retiro</option>
-              <option>2 region retiro</option>
-              <option>3 region retiro</option>
-              <option>4 region retiro</option>
-              <option>5 region retiro</option>
-            </select>
+    <h2>Buscar Vehiculo en:</h2>
+    <form action="/buscar" method="POST">
+          <div class="row"> <!--fila 1-->
+            <div class="col"><!--fila 1 columna 1-->
+              <div class="form-group">
+                <label for="regionSelect">Region retiro</label>
+                <select class="form-control" id="regionSelect">
+                  <%for(var i=0; i<data.length;i++){%>
+                    <option><%= data[i].region%></option>
+                  <%}%>
+                </select>
+              </div>
+            </div>
+            <div class="col"> <!--fila 1 columna 2-->
+              <div class="form-group">
+                <label class="col-form-label">Fecha y hora de retiro</label>
+                <input type="text" name="fecha_retiro" class="form-control" placeholder="YYYY-mm-dd HH:mm:ss">
+              </div>
+            </div>
+          </div>
+          <div class="row"> <!--fila 2-->
+            <div class="col"> <!--fila 2 columna 1-->
+                <div class="form-group">
+                    <label class="col-form-label">Sucursal retiro</label>
+                    <input type="text" name="id_sucursal" class="form-control" placeholder="nºsucursal">
+                  </select>
+                </div>
+            </div>
+            <div class="col"> <!--fila 2 columna 2-->
+              <div class="form-group">
+                <label class="col-form-label">Fecha y hora de devolucion</label>
+                <input type="text" name="fecha_devolucion" class="form-control" placeholder="YYYY-mm-dd HH:mm:ss">
+              </div>
+            </div>
           </div>
           
-          <fieldset class="form-group">
-            <legend>Checkboxes</legend>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="" checked="">
-                Devolver en otra sucursal
-              </label>
-            </div>
-          </fieldset>
+          <div class="row"> <!--fila 3-->
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="" checked="">
+                  Devolver en otra sucursal - opcion desabilitada
+                </label>
+              </div>
+          </div>
+          
           <button type="submit" class="btn btn-primary">Enviar</button>
-        </fieldset>
       </form>
 </div>
-
 <% include parts/_footer %>

@@ -20,7 +20,7 @@ ServerApp.use(myConnection(mysql,{ //prts de comunicacion mysql y config
     user:'root',
     password:'0&privateVoid',
     post:3306, 
-    database:'SistemaRentaVehiculos'
+    database:'SRV'
 },'single'));
 ServerApp.use(express.urlencoded({extended:false})); //to formulary
 

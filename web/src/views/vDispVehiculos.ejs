@@ -1,0 +1,45 @@
+
+<% include parts/_header %>
+
+<div class="container">
+    <div class="row">
+            <div class="col-md-7">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Detail</th>
+                            <th>Worth</th>
+                            <th>Bar code</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tbody>
+                            <pre><% if(data){ %>
+                                <%for(var i=0; i< data.length;i++){%>
+                                    <tr>
+                                        <td><%= data[i].id_producto %></td>
+                                        <td><%= data[i].nom_prod %></td>
+                                        <td><%= data[i].tipo %></td>
+                                        <td><%= data[i].detalle %></td>
+                                        <td><%= data[i].valor %></td>
+                                        <td><%= data[i].cod_barra %></td>
+                                        <td><%= data[i].stock %></td>
+                                        <td>
+                                            <a href="/delete/<%=data[i].id_producto%>" class="btn btn-danger">Delete</a>
+                                            <a href="/update/<%=data[i].id_producto%>" class="btn btn-info">Update</a>
+                                        </td>
+                                    </tr>
+                                <%}%>
+                            <% } %></pre>
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+    </div>
+    <div class="col-md-5"></div>
+</div>
+
+<% include parts/_footer %>
