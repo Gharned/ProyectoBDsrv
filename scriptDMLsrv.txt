@@ -37,21 +37,39 @@ insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) 
 
 
 
-insert into Vehiculo values('HVYD21',20,'SUV','rojo','Chery','Tiggo 5', '2019-02-01',120,210000, 1);
-insert into Vehiculo values('XD4913',100,'Automovil','blanco','Chevrolet', 'Aveo','2005-10-12',150,120000, 0);
-insert into Vehiculo values('KLLD09', 30,'Automovil','negro','Mitsubishi','Lancer Evo','2019-02-01',220,300000, 1);
-insert into Vehiculo values('XF3O13', 20,'Automovil','amarillo','Subaru','Impreza','2000-01-25',200, 100000, 1);
-insert into Vehiculo values('ASSW11',10,'Camioneta','negro','Ford','F20','2019-02-01',230,400000,1);
-insert into Vehiculo values('NKSH67',10,'AutoMovil','verde','Hiundait' ,'Accent','2019-04-10',180, 249000,  1);
-insert into Vehiculo values('ALOM25',20,'Motocicleta Deportiva','Honda','rojo','CBR1000', '2019-02-21',190, 190000,  1);
-insert into Vehiculo values('APEX21',30,'Automovil','negro','Audi','A4','2011-03-01',330,255000,  0);
-insert into Vehiculo values('VTRW23',100,'Automovil','plomo','Ford','Fiesta','2019-01-03',250, 300000, 0);
-insert into Vehiculo values('FEFG35',40,'Scooter','blanco','Yamaha','NMAX','2019-05-01',120,90000, 1);
+insert into Vehiculo values('HVYD21',20,'SUV','Chery','Tiggo 5','rojo', '2019-02-01',120,210000, 1);
+insert into Vehiculo values('XD4913',100,'Automovil','Chevrolet', 'Aveo','blanco','2005-10-12',150,120000, 0);
+insert into Vehiculo values('KLLD09',30,'Automovil','Mitsubishi','Lancer Evo','negro','2019-02-01',220,300000, 1);
+insert into Vehiculo values('XF3O13',20,'Automovil','Subaru','Impreza','amarillo','2000-01-25',200, 100000, 1);
+insert into Vehiculo values('ASSW11',10,'Camioneta','Ford','F20','negro','2019-02-01',230,400000,1);
+insert into Vehiculo values('NKSH67',10,'AutoMovil','Hiundait' ,'Accent','verde','2019-04-10',180, 249000,  1);
+insert into Vehiculo values('ALOM25',20,'Motocicleta Deportiva','Honda','CBR1000','rojo', '2019-02-21',190, 190000,  1);
+insert into Vehiculo values('APEX21',30,'Automovil','Audi','A4','negro','2011-03-01',330,255000,  0);
+insert into Vehiculo values('VTRW23',100,'Automovil','Ford','Fiesta','plomo','2019-01-03',250, 300000, 0);
+insert into Vehiculo values('FEFG35',40,'Scooter','Yamaha','NMAX','blanco','2019-05-01',120,90000, 1);
+
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('XSZA51', 40, '2019-03-12','rojo', 'Mitsubishi', 'L-200', 39000, 'Camioneta', 0,300);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('IHYT73', 50, '2017-05-14','blanco', 'Kia' , 'Rio 5', 29000, 'Automovil', 1,260);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('HJNG12', 50, '2019-02-04','rojo', 'Chery' , 'Tiggo 5', 21000, 'SUV', 0,250);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('MNGA12', 60, '2019-02-13','negro', 'Honda' , 'CBR1000', 19000, 'Motocicleta Deportiva', 0,300);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('KFCH90', 60, '2019-04-26','azul', 'Yamaha' , 'NMAX', 10000, 'Scooter', 1,100);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('UKWO27', 60, '2019-01-15','negro', 'Ford' , 'Fiesta', 30000, 'Automovil', 1,250);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('DFAR54', 70, '2019-01-03','naranjo', 'Toyota' , 'Hilux', 22000, 'Automovil', 0,220);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('MOLA77', 70, '2019-03-12','cafe', 'Alfa Romeo', 'Giulia Quadrifoglio', 50000, 'Automovil', 0,220);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('YETA69', 80, '2018-11-30','naranjo', 'Nissan', 'NP300', 27000, 'Camioneta', 0,280);
+
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje) values('ALCZ25', 90, '2019-01-23','verde', 'Toyota', 'Hiace', 23000, 'Furgoneta', 0,3450);
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje) values('LKKA19', 80, '2019-03-12','negro', 'Kia', 'Sportage C', 30000, 'SUV', 0,950);
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje) values('AADQ37', 90, '2019-03-12','rojo', 'Chevrolet', 'Tracker', 31000, 'SUV', 0,1550);
 
 
 
-insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(20010905, 'ALOM25', 'Finalizada', 10, 'Valparaiso', '2019-06-25 12:00:00', 10, 'Valparaiso','2019-07-21 13:30:00');
 
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19941255, 'ALOM25', 'En Curso', 10, 'Valparaiso', '2019-08-02 13:00:00', 10, 'Valparaiso','2019-11-30 08:30:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19887114, 'MOLA77', 'Cancelada', 70,'Maule', '2019-05-01 11:00:00', 10, 'Valparaiso','2019-07-20 08:30:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19824957, 'APEX21', 'Finalizada', 70,'Maule', '2019-01-01 11:00:00', 30,'Santiago','2019-08-13 08:45:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(20343124, 'UKWO27', 'En Curso', 60,'Coquimbo', '2019-04-05 15:00:00', 60,'Coquimbo','2019-07-10 14:30:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19328308, 'AADQ37', 'Finalizada', 90,'Araucania', '2019-05-05 14:30:00', 90,'Araucania','2019-10-20 17:15:00');
 
 
 insert into Empleado values(5699666,10,'eliverto@gmail.com','Rentador','eli1063');

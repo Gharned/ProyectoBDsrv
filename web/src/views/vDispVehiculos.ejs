@@ -4,11 +4,31 @@
 <div class="container">
     <div class="row">
             <div class="col-md-4">
-                <h3>Filtros</h3>
-                <form action="/filtrar" >
+                <h3>Filtrar por:</h3>
+                <!--quizas alla que arreglarlo, es lo unico que se me ocurrio hasta ahora-->
+                <form action="/filtrar/<%=dataStore.id_sucursal%>/<%=dataStore.fecha_retiro%>/<%=dataStore.fecha_devolucion%>" method="POST">
                     <div class="row">
                             <label>Tipo</label>
                             <input type="text" name="tipo" class="form-control" placeholder="tipo">
+                    </div>
+                    <div class="row">
+                            <label>Marca</label>
+                            <input type="text" name="marca" class="form-control" placeholder="marca">
+                    </div>
+                    <div class="row">
+                            <label>Modelo</label>
+                            <input type="text" name="modelo" class="form-control" placeholder="modelo">
+                    </div>
+                    <div class="row">            
+                            <label>Anio</label>
+                            <input type="text" name="anio" class="form-control" placeholder="anio">
+                    </div>
+                    <div class="row">
+                            <label>Kilometraje</label>
+                            <input type="text" name="kilometraje" class="form-control" placeholder="kilometraje">
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
                     </div>
                 </form>
             </div> 
