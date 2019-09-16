@@ -4,14 +4,38 @@
 
     <div class="col-md-7">
         <h3>Datos personales</h3>
-        <form action="" method="post">
+        <form action="/finalizada/<%=dataSto.matricula%>/<%=dataSto.local_retiro%>/<%=dataSto.fecha_retiro%>/<%=dataSto.region_retiro%>/<%=dataSto.local_devolucion%>/<%=dataSto.fecha_devolucion%>/<%=dataSto.region_devolucion%>" method="post">
             <div class="row">
                 <label>Rut</label>
-                <input type="text" name="rut_cliente" class="form-control" placeholder="sin punto ni guion">
+                <input type="text" name="rut_cliente" class="form-control" placeholder="Sin punto ni guion">
+            </div>
+            <div class="row">
+                <label>Primer nombre</label>
+                <input type="text" name="primer_nom" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="row">
+                <label>Apellido Paterno</label>
+                <input type="text" name="apellido_pat" class="form-control" placeholder="Paterno">
+            </div>
+            <div class="row">
+                <label>Apellido Materno</label>
+                <input type="text" name="apellido_mat" class="form-control" placeholder="Materno">
+            </div>
+            <div class="row">
+                <label>Telefono</label>
+                <input type="text" name="telefono" class="form-control" placeholder="9xxxxxxxx">
+            </div>
+            <div class="row">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" placeholder="email@dominio.x">
+            </div>
+            <div class="row">
+                <label>Fecha de nacimiento</label>
+                <input type="text" name="fecha_nac" class="form-control" placeholder="YYYY-MM-DD">
             </div>
 
+            <button type="submit" class="btn btn-primary">Finalizar</button>
         </form>
-
     </div>
 
     <div class="col-md-5">

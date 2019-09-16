@@ -86,6 +86,8 @@ customer.arrendar=(req,res)=>{
             dataStore.region_retiro=region_rd[0].region;
             dataStore.region_devolucion=region_rd[0].region; //deviesen ser 2 querys
             //console.log(dataStore);
+
+            //falta renderizar mas datos aun
             res.render('vArriendo',{
                 dataSto:dataStore,
             });
@@ -93,9 +95,25 @@ customer.arrendar=(req,res)=>{
     });
 };
 
+//en otra version ver si dataStore puede funcionar como variable global -> a no ser que influya en todos los customers
 
 customer.finalizar=(req,res)=>{
-    
+    var dataStore=new Object();
+    dataStore.matricula=req.params.matricula;
+    dataStore.local_retiro=req.params.local_retiro; 
+    dataStore.local_devolucion=req.params.local_devolucion;
+    dataStore.fecha_retiro=req.params.fecha_retiro;
+    dataStore.fecha_devolucion=req.params.fecha_devolucion;
+    dataStore.region_retiro=req.params.region_retiro;
+    dataStore.region_devolucion=req.params.region_devolucion;
+    //----------------------------------------------------------
+    const cliente=req.body; //trae parametros del formulario
+    req.getConnection((err,conn)=>{
+        //hacer insert a la tabla Cliente
+        conn.query('');
+    });
+
+
 };
 
 
