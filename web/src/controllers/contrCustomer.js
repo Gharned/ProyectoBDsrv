@@ -21,16 +21,16 @@ customer.infSuc=(req,res)=>{
 customer.dispVehiculos=(req,res)=>{
     //obtengo el id de la sucursal que se encontrará en una region
     // y buscare los vehiculos que no están rentados de esa sucursal
-    const data=req.body; //contiene id_sucursal,fecha_retiro,fecha_devolucion
-    
+    const data=req.body;
     req.getConnection((err,conn)=>{
-        conn.query('select tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where id_sucursal=?',[id],(err,vehiculos)=>{
+        conn.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=1 and id_sucursal=?',[data.id_sucursal],(err,vehiculos)=>{
             if(err){
                 console.log('Error con obtencion de vehiculos');
             }
             //envio vehiculos a la pagina redireccionada
-            res.send('vDispVehiculos',{
+            res.render('vDispVehiculos',{
                 data:vehiculos,
+                dataStore:req.body,
             });
         });
     });

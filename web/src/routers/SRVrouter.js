@@ -8,6 +8,7 @@ const contrCustomer=require("../controllers/contrCustomer");
 
 router.get("/",contrCustomer.infSuc);
 router.post('/buscar',contrCustomer.dispVehiculos);
+router.post('/filtrar',contrCustomer.paramFilter);
 
 module.exports=router; //exportar metodos permitidos para
 //estas rutas
