@@ -12,5 +12,7 @@ router.post('/buscar',contrCustomer.dispVehiculos);
 //buscar otras maneras, mas adelante
 router.post('/filtrar/:id/:fecha_r/:fecha_d',contrCustomer.paramFilter);
 
+router.get('/arrendar/:matricula/:id/:fecha_r/:fecha_d',contrCustomer.arrendar);
+
 module.exports=router; //exportar metodos permitidos para
 //estas rutas

@@ -32,7 +32,7 @@ customer.dispVehiculos=(req,res)=>{
                 console.log('Error con obtencion de vehiculos');
             }
             //envio vehiculos a la pagina redireccionada
-            res.render('vDispVehiculos',{
+            res.render('vCatalogo',{
                 data:vehiculos,
                 dataStore:req.body,
             });
@@ -60,7 +60,7 @@ customer.paramFilter=(req,res)=>{
             if(err){
                 console.log('Error con obtencion de vehiculos por filtro');
             }
-            res.render('vDispVehiculos',{
+            res.render('vCatalogo',{
                 data:fvehiculos,
                 dataStore:dataStore,
             });
@@ -68,6 +68,35 @@ customer.paramFilter=(req,res)=>{
     });
 };
 
+//nota: ya deberia tener la regio, por el seleccionado de vPrincipal, pero no
+customer.arrendar=(req,res)=>{
+    var dataStore=new Object(); //rellenado al objeto
+    dataStore.matricula=req.params.matricula;
+    dataStore.local_retiro=req.params.id; //este será mientras tanto el local de retiro y devolucion
+    dataStore.local_devolucion=req.params.id;// lo que dije arriba
+
+    dataStore.fecha_retiro=req.params.fecha_r;
+    dataStore.fecha_devolucion=req.params.fecha_d;
+    req.getConnection((err,conn)=>{
+        //para conceguir la de "retiro", "devolucion" -->cuando se arregle, hacer 2 querys
+        conn.query('select region from Direccion_sucursal where id_sucursal=?;',[dataStore.local_retiro],(err,region_rd)=>{
+            if(err){
+                console.log("No se encontro la region");
+            }
+            dataStore.region_retiro=region_rd[0].region;
+            dataStore.region_devolucion=region_rd[0].region; //deviesen ser 2 querys
+            //console.log(dataStore);
+            res.render('vArriendo',{
+                dataSto:dataStore,
+            });
+        });
+    });
+};
+
+
+customer.finalizar=(req,res)=>{
+    
+};
 
 
 module.exports=customer;

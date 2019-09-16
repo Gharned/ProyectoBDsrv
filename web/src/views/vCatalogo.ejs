@@ -62,7 +62,7 @@
                                         <td><%= data[i].kilometraje %></td>
                                         <td><%= data[i].precio %></td>
                                         <td>
-                                            <a href="/reservar/<%=data[i].matricula%>" class="btn btn-danger">Reservar</a>
+                                            <a href="/arrendar/<%=data[i].matricula%>/<%=dataStore.id_sucursal%>/<%=dataStore.fecha_retiro%>/<%=dataStore.fecha_devolucion%>" class="btn btn-danger">Reservar</a>
                                         </td>
                                     </tr>
                                 <%}%>
