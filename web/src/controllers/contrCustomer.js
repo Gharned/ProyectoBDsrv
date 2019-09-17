@@ -41,10 +41,10 @@ customer.dispVehiculos=(req,res)=>{
 };
 
 //quizas alla que arreglarlo, es lo unico que se me ocurrio
-customer.paramFilter=(req,res)=>{
+customer.paramFilter=(req,res)=>{  //desde aqui debiese tener mi local_r y local_d
     const filtros=req.body; //trae parametros de para el filtro
     var dataStore=new Object(); //rellenado al objeto
-    dataStore.id_sucursal=req.params.id;
+    dataStore.id_sucursal=req.params.id; 
     dataStore.fecha_retiro=req.params.fecha_r;
     dataStore.fecha_devolucion=req.params.fecha_d;
 
@@ -86,10 +86,23 @@ customer.arrendar=(req,res)=>{
             dataStore.region_retiro=region_rd[0].region;
             dataStore.region_devolucion=region_rd[0].region; //deviesen ser 2 querys
             //console.log(dataStore);
-
-            //falta renderizar mas datos aun
-            res.render('vArriendo',{
-                dataSto:dataStore,
+            conn.query('select calle,numero,ciudad,region from Sucursal as s inner join Direccion_sucursal as ds on s.id_sucursal=ds.id_sucursal where s.id_sucursal=?;',[dataStore.local_retiro],(err,datos_retiro)=>{
+                conn.query('select calle,numero,ciudad,region from Sucursal as s inner join Direccion_sucursal as ds on s.id_sucursal=ds.id_sucursal where s.id_sucursal=?;',[dataStore.local_devolucion],(err,datos_devolucion)=>{
+                    conn.query('select marca, modelo, precio from Vehiculo as v where v.matricula=?;',[dataStore.matricula],(err,datos_veh)=>{
+                        conn.query('select datediff(?,?) as dias;',[dataStore.fecha_devolucion,dataStore.fecha_retiro],(err,difDias)=>{
+                            if(err){
+                                console.log('Error con obtencion de datos del vehiculo');
+                            }
+                            res.render('vArriendo',{
+                                dataSto:dataStore,
+                                dataRetiro:datos_retiro,
+                                dataDev:datos_devolucion,
+                                dataVeh:datos_veh,
+                                dataDias:difDias,
+                            });
+                        });
+                    });
+                });
             });
         });
     });
@@ -107,13 +120,53 @@ customer.finalizar=(req,res)=>{
     dataStore.region_retiro=req.params.region_retiro;
     dataStore.region_devolucion=req.params.region_devolucion;
     //----------------------------------------------------------
-    const cliente=req.body; //trae parametros del formulario
+    const cliente=req.body; //trae parametros del formulario cliente
+    dataStore.rut_cliente=cliente.rut_cliente;
+    dataStore.estado='En Curso';
     req.getConnection((err,conn)=>{
-        //hacer insert a la tabla Cliente
-        conn.query('');
+        //pregunto si ya existe el cliente la bd
+        conn.query('select rut_cliente from Cliente where rut_cliente=?;',[cliente.rut_cliente],(err,rut)=>{
+            if(err){
+                console.log("Error al conseguir rut del cliente");
+            }else{
+                if(Object.keys(rut).length === 0){ //pregunto si lo no lo encontro, hace esto
+                    conn.query('insert into Cliente (rut_cliente,telefono,email,fecha_nac) values (?,?,?,?);',[cliente.rut_cliente,cliente.telefono,cliente.email,cliente.fecha_nac],(err, exito)=>{
+                        if(err){
+                            console.log("Error al insertar en Cliente");
+                        }
+                        conn.query('insert into Nombre_cliente (rut_cliente,primer_nom,apellido_pat,apellido_mat) values (?,?,?,?);',[cliente.rut_cliente,cliente.primer_nom,cliente.apellido_pat,cliente.apellido_mat],(err, exito)=>{
+                            if(err){
+                                console.log("Error al insertar en Nombre_cliente");
+                            }
+                            conn.query('insert into Renta set ?;',[dataStore],(err,exito)=>{
+                                if(err){
+                                    console.log("Error al insertar en Renta");
+                                }
+                                conn.query('update Vehiculo set estado=1 where matricula=?;',[dataStore.matricula],(err,exito)=>{ //actualizo estado de vehiculo a rentado
+                                    if(err){
+                                        console.log("Error al actualizar en Vehiculo");
+                                    }
+                                    res.redirect('/');
+                                });
+                            });
+                        });
+                    });
+                }else{ //si lo encontro
+                    conn.query('insert into Renta set ?;',[dataStore],(err,exito)=>{ 
+                        if(err){
+                            console.log("Error al insertar en Renta");
+                        }
+                        conn.query('update Vehiculo set estado=1 where matricula=?;',[dataStore.matricula],(err,exito)=>{ //actualizo estado de vehiculo a rentado
+                            if(err){
+                                console.log("Error al actualizar en Vehiculo");
+                            }
+                            res.redirect('/');
+                        });
+                    });
+                }
+            }
+        });
     });
-
-
 };
 
 

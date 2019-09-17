@@ -2,17 +2,20 @@ query para conseguir detalles del arriendo
 
 ---esta es para conceguir calle,numero,ciudad,region de la sucursal retiro
 
-select calle,numero,ciudad,region, from Sucursal as s inner join Direccion_sucursal as ds on s.id_sucursal=ds.id_sucursal inner join Vehiculo as v on s.id_sucursal=v.id_sucursal;
+select calle,numero,ciudad,region from Sucursal as s inner join Direccion_sucursal as ds on s.id_sucursal=ds.id_sucursal;
 
 
 ---esta es para conceguir calle,numero,ciudad,region de la sucursal devolucion
 
-select calle,numero,ciudad,region, from Sucursal as s inner join Direccion_sucursal as ds on s.id_sucursal=ds.id_sucursal inner join Vehiculo as v on s.id_sucursal=v.id_sucursal;
+select calle,numero,ciudad,region from Sucursal as s inner join Direccion_sucursal as ds on s.id_sucursal=ds.id_sucursal;
 
 
 ---marca, modelo, precio del vehiculo -->pero debe ser precio total
 
-select marca, modelo , precio  from Vehiculo;
+select marca, modelo , precio  from Vehiculo as v where v.matricula=?;
 
+--diferencia de dias entre fechas dadas
+
+select datediff(?,?) as dias;
 
 

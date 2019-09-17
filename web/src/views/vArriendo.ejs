@@ -1,45 +1,79 @@
 <% include parts/_header %>
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Datos personales</h3>
+            <form action="/finalizada/<%=dataSto.matricula%>/<%=dataSto.local_retiro%>/<%=dataSto.fecha_retiro%>/<%=dataSto.region_retiro%>/<%=dataSto.local_devolucion%>/<%=dataSto.fecha_devolucion%>/<%=dataSto.region_devolucion%>" method="post">
+                <div class="row">
+                    <label>Rut</label>
+                    <input type="text" name="rut_cliente" class="form-control" placeholder="Sin punto ni guion">
+                </div>
+                <div class="row">
+                    <label>Primer nombre</label>
+                    <input type="text" name="primer_nom" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="row">
+                    <label>Apellido Paterno</label>
+                    <input type="text" name="apellido_pat" class="form-control" placeholder="Paterno">
+                </div>
+                <div class="row">
+                    <label>Apellido Materno</label>
+                    <input type="text" name="apellido_mat" class="form-control" placeholder="Materno">
+                </div>
+                <div class="row">
+                    <label>Telefono</label>
+                    <input type="text" name="telefono" class="form-control" placeholder="9xxxxxxxx">
+                </div>
+                <div class="row">
+                    <label>Email</label>
+                    <input type="text" name="email" class="form-control" placeholder="email@dominio.x">
+                </div>
+                <div class="row">
+                    <label>Fecha de nacimiento</label>
+                    <input type="text" name="fecha_nac" class="form-control" placeholder="YYYY-MM-DD">
+                </div>
 
-    <div class="col-md-7">
-        <h3>Datos personales</h3>
-        <form action="/finalizada/<%=dataSto.matricula%>/<%=dataSto.local_retiro%>/<%=dataSto.fecha_retiro%>/<%=dataSto.region_retiro%>/<%=dataSto.local_devolucion%>/<%=dataSto.fecha_devolucion%>/<%=dataSto.region_devolucion%>" method="post">
-            <div class="row">
-                <label>Rut</label>
-                <input type="text" name="rut_cliente" class="form-control" placeholder="Sin punto ni guion">
+                <button type="submit" class="btn btn-primary">Finalizar</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <h3 class=text-center>Detalles del arriendo</h3>
+            <div class="containter">
+                <div class="row"> <!--row1 retiro-->
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-primary">Local retiro del vehiculo</div>
+                        <div class="card-body">
+                          <p class="card-text"><%=dataRetiro[0].calle%> <%=dataRetiro[0].numero%>, <%=dataRetiro[0].ciudad%>, <%=dataRetiro[0].region%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> <!--row2 devolucion-->
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-primary">Local devolucion del vehiculo</div>
+                        <div class="card-body">
+                          <p class="card-text"><%=dataDev[0].calle%> <%=dataDev[0].numero%>, <%=dataDev[0].ciudad%>, <%=dataDev[0].region%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> <!--row3 vehiculo-->
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-primary">Vehiculo</div>
+                        <div class="card-body">
+                          <p class="card-text"><%=dataVeh[0].marca%> <%=dataVeh[0].modelo%></p>
+                          <p class="card-text">Por dia: $<%=dataVeh[0].precio%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> <!--row4 total-->
+                    <div class="col">
+                        <h2>Total: $<%= (dataDias[0].dias*dataVeh[0].precio)%></h2>
+                    </div>
+                </div>
+                
             </div>
-            <div class="row">
-                <label>Primer nombre</label>
-                <input type="text" name="primer_nom" class="form-control" placeholder="Nombre">
-            </div>
-            <div class="row">
-                <label>Apellido Paterno</label>
-                <input type="text" name="apellido_pat" class="form-control" placeholder="Paterno">
-            </div>
-            <div class="row">
-                <label>Apellido Materno</label>
-                <input type="text" name="apellido_mat" class="form-control" placeholder="Materno">
-            </div>
-            <div class="row">
-                <label>Telefono</label>
-                <input type="text" name="telefono" class="form-control" placeholder="9xxxxxxxx">
-            </div>
-            <div class="row">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control" placeholder="email@dominio.x">
-            </div>
-            <div class="row">
-                <label>Fecha de nacimiento</label>
-                <input type="text" name="fecha_nac" class="form-control" placeholder="YYYY-MM-DD">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Finalizar</button>
-        </form>
-    </div>
-
-    <div class="col-md-5">
-
+        </div>
     </div>
 </div>
 

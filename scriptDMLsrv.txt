@@ -37,30 +37,30 @@ insert into Nombre_cliente(rut_cliente, primer_nom, apellido_pat, apellido_mat) 
 
 
 
-insert into Vehiculo values('HVYD21',20,'SUV','Chery','Tiggo 5','rojo', '2019-02-01',120,210000, 1);
+insert into Vehiculo values('HVYD21',20,'SUV','Chery','Tiggo 5','rojo', '2019-02-01',120,210000, 0);
 insert into Vehiculo values('XD4913',100,'Automovil','Chevrolet', 'Aveo','blanco','2005-10-12',150,120000, 0);
-insert into Vehiculo values('KLLD09',30,'Automovil','Mitsubishi','Lancer Evo','negro','2019-02-01',220,300000, 1);
-insert into Vehiculo values('XF3O13',20,'Automovil','Subaru','Impreza','amarillo','2000-01-25',200, 100000, 1);
-insert into Vehiculo values('ASSW11',10,'Camioneta','Ford','F20','negro','2019-02-01',230,400000,1);
-insert into Vehiculo values('NKSH67',10,'AutoMovil','Hiundait' ,'Accent','verde','2019-04-10',180, 249000,  1);
-insert into Vehiculo values('ALOM25',20,'Motocicleta Deportiva','Honda','CBR1000','rojo', '2019-02-21',190, 190000,  1);
-insert into Vehiculo values('APEX21',30,'Automovil','Audi','A4','negro','2011-03-01',330,255000,  0);
+insert into Vehiculo values('KLLD09',30,'Automovil','Mitsubishi','Lancer Evo','negro','2019-02-01',220,300000, 0);
+insert into Vehiculo values('XF3O13',20,'Automovil','Subaru','Impreza','amarillo','2000-01-25',200, 100000, 0);
+insert into Vehiculo values('ASSW11',10,'Camioneta','Ford','F20','negro','2019-02-01',230,400000,0);
+insert into Vehiculo values('NKSH67',10,'AutoMovil','Hiundait' ,'Accent','verde','2019-04-10',180, 249000, 0);
+insert into Vehiculo values('ALOM25',20,'Motocicleta Deportiva','Honda','CBR1000','rojo', '2019-02-21',190, 190000, 1);
+insert into Vehiculo values('APEX21',30,'Automovil','Audi','A4','negro','2011-03-01',330,255000,  1);
 insert into Vehiculo values('VTRW23',100,'Automovil','Ford','Fiesta','plomo','2019-01-03',250, 300000, 0);
-insert into Vehiculo values('FEFG35',40,'Scooter','Yamaha','NMAX','blanco','2019-05-01',120,90000, 1);
+insert into Vehiculo values('FEFG35',40,'Scooter','Yamaha','NMAX','blanco','2019-05-01',120,90000, 0);
 
 insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('XSZA51', 40, '2019-03-12','rojo', 'Mitsubishi', 'L-200', 39000, 'Camioneta', 0,300);
-insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('IHYT73', 50, '2017-05-14','blanco', 'Kia' , 'Rio 5', 29000, 'Automovil', 1,260);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('IHYT73', 50, '2017-05-14','blanco', 'Kia' , 'Rio 5', 29000, 'Automovil', 0,260);
 insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('HJNG12', 50, '2019-02-04','rojo', 'Chery' , 'Tiggo 5', 21000, 'SUV', 0,250);
 insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('MNGA12', 60, '2019-02-13','negro', 'Honda' , 'CBR1000', 19000, 'Motocicleta Deportiva', 0,300);
-insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('KFCH90', 60, '2019-04-26','azul', 'Yamaha' , 'NMAX', 10000, 'Scooter', 1,100);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('KFCH90', 60, '2019-04-26','azul', 'Yamaha' , 'NMAX', 10000, 'Scooter', 0,100);
 insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('UKWO27', 60, '2019-01-15','negro', 'Ford' , 'Fiesta', 30000, 'Automovil', 1,250);
 insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('DFAR54', 70, '2019-01-03','naranjo', 'Toyota' , 'Hilux', 22000, 'Automovil', 0,220);
-insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('MOLA77', 70, '2019-03-12','cafe', 'Alfa Romeo', 'Giulia Quadrifoglio', 50000, 'Automovil', 0,220);
+insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('MOLA77', 70, '2019-03-12','cafe', 'Alfa Romeo', 'Giulia Quadrifoglio', 50000, 'Automovil', 1,220);
 insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio, tipo, estado, kilometraje) values('YETA69', 80, '2018-11-30','naranjo', 'Nissan', 'NP300', 27000, 'Camioneta', 0,280);
 
 insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje) values('ALCZ25', 90, '2019-01-23','verde', 'Toyota', 'Hiace', 23000, 'Furgoneta', 0,3450);
 insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje) values('LKKA19', 80, '2019-03-12','negro', 'Kia', 'Sportage C', 30000, 'SUV', 0,950);
-insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje) values('AADQ37', 90, '2019-03-12','rojo', 'Chevrolet', 'Tracker', 31000, 'SUV', 0,1550);
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje) values('AADQ37', 90, '2019-03-12','rojo', 'Chevrolet', 'Tracker', 31000, 'SUV', 1,1550);
 
 
 
