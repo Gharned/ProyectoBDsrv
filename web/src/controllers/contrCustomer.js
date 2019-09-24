@@ -27,7 +27,7 @@ customer.dispVehiculos=(req,res)=>{
     // y buscare los vehiculos que no están rentados de esa sucursal
     const data=req.body;
     req.getConnection((err,conn)=>{
-        conn.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=1 and id_sucursal=?',[data.id_sucursal],(err,vehiculos)=>{
+        conn.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=0 and id_sucursal=?',[data.id_sucursal],(err,vehiculos)=>{
             if(err){
                 console.log('Error con obtencion de vehiculos');
             }
@@ -43,6 +43,8 @@ customer.dispVehiculos=(req,res)=>{
 //quizas alla que arreglarlo, es lo unico que se me ocurrio
 customer.paramFilter=(req,res)=>{  //desde aqui debiese tener mi local_r y local_d
     const filtros=req.body; //trae parametros de para el filtro
+    console.log(filtros);
+    
     var dataStore=new Object(); //rellenado al objeto
     dataStore.id_sucursal=req.params.id; 
     dataStore.fecha_retiro=req.params.fecha_r;
@@ -54,9 +56,11 @@ customer.paramFilter=(req,res)=>{  //desde aqui debiese tener mi local_r y local
             resultado+=" and "+i+"='"+filtros[i]+"'";
         }
     }
+    console.log(resultado);
+    
     //console.log(resultado);
     req.getConnection((err,conn)=>{
-        conn.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=1 and id_sucursal=?'+resultado+';',[dataStore.id_sucursal],(err,fvehiculos)=>{
+        conn.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=0 and id_sucursal=?'+resultado+';',[dataStore.id_sucursal],(err,fvehiculos)=>{
             if(err){
                 console.log('Error con obtencion de vehiculos por filtro');
             }
