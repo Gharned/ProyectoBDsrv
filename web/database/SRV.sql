@@ -175,7 +175,7 @@ CREATE TABLE `Renta` (
   KEY `matricula` (`matricula`),
   CONSTRAINT `Renta_ibfk_1` FOREIGN KEY (`rut_cliente`) REFERENCES `Cliente` (`rut_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `Renta_ibfk_2` FOREIGN KEY (`matricula`) REFERENCES `Vehiculo` (`matricula`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `Renta` (
 
 LOCK TABLES `Renta` WRITE;
 /*!40000 ALTER TABLE `Renta` DISABLE KEYS */;
-INSERT INTO `Renta` VALUES (1,19941255,'ALOM25','En Curso','2019-08-02 13:00:00',10,'Valparaiso','2019-11-30 08:30:00',10,'Valparaiso'),(2,19887114,'MOLA77','Cancelada','2019-05-01 11:00:00',70,'Maule','2019-07-20 08:30:00',10,'Valparaiso'),(3,19824957,'APEX21','Finalizada','2019-01-01 11:00:00',70,'Maule','2019-08-13 08:45:00',30,'Santiago'),(4,20343124,'UKWO27','En Curso','2019-04-05 15:00:00',60,'Coquimbo','2019-07-10 14:30:00',60,'Coquimbo'),(5,19328308,'AADQ37','Finalizada','2019-05-05 14:30:00',90,'Araucania','2019-10-20 17:15:00',90,'Araucania');
+INSERT INTO `Renta` VALUES (1,19941255,'ALOM25','En Curso','2019-08-02 13:00:00',10,'Valparaiso','2019-11-30 08:30:00',10,'Valparaiso'),(2,19887114,'MOLA77','Cancelada','2019-05-01 11:00:00',70,'Maule','2019-07-20 08:30:00',10,'Valparaiso'),(3,19824957,'APEX21','Finalizada','2019-01-01 11:00:00',70,'Maule','2019-08-13 08:45:00',30,'Santiago'),(4,20343124,'UKWO27','En Curso','2019-04-05 15:00:00',60,'Coquimbo','2019-07-10 14:30:00',60,'Coquimbo'),(5,19328308,'AADQ37','Finalizada','2019-05-05 14:30:00',90,'Araucania','2019-10-20 17:15:00',90,'Araucania'),(6,20010905,'HVYD21','En Curso','1990-03-12 13:30:00',20,'Valparaiso','2000-05-29 19:00:00',20,'Valparaiso');
 /*!40000 ALTER TABLE `Renta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,7 +271,7 @@ CREATE TABLE `Vehiculo` (
 
 LOCK TABLES `Vehiculo` WRITE;
 /*!40000 ALTER TABLE `Vehiculo` DISABLE KEYS */;
-INSERT INTO `Vehiculo` VALUES ('AADQ37',90,'SUV','Chevrolet','Tracker','rojo','2019-03-12',1550,31000,1),('ALCZ25',90,'Furgoneta','Toyota','Hiace','verde','2019-01-23',3450,23000,0),('ALOM25',20,'Motocicleta Deportiva','Honda','CBR1000','rojo','2019-02-21',190,190000,1),('APEX21',30,'Automovil','Audi','A4','negro','2011-03-01',330,255000,1),('ASSW11',10,'Camioneta','Ford','F20','negro','2019-02-01',230,400000,0),('DFAR54',70,'Automovil','Toyota','Hilux','naranjo','2019-01-03',220,22000,0),('FEFG35',40,'Scooter','Yamaha','NMAX','blanco','2019-05-01',120,90000,0),('HJNG12',50,'SUV','Chery','Tiggo 5','rojo','2019-02-04',250,21000,0),('HVYD21',20,'SUV','Chery','Tiggo 5','rojo','2019-02-01',120,210000,0),('IHYT73',50,'Automovil','Kia','Rio 5','blanco','2017-05-14',260,29000,0),('KFCH90',60,'Scooter','Yamaha','NMAX','azul','2019-04-26',100,10000,0),('KLLD09',30,'Automovil','Mitsubishi','Lancer Evo','negro','2019-02-01',220,300000,0),('LKKA19',80,'SUV','Kia','Sportage C','negro','2019-03-12',950,30000,0),('MNGA12',60,'Motocicleta Deportiva','Honda','CBR1000','negro','2019-02-13',300,19000,0),('MOLA77',70,'Automovil','Alfa Romeo','Giulia Quadrifoglio','cafe','2019-03-12',220,50000,1),('NKSH67',10,'AutoMovil','Hiundait','Accent','verde','2019-04-10',180,249000,0),('UKWO27',60,'Automovil','Ford','Fiesta','negro','2019-01-15',250,30000,1),('VTRW23',100,'Automovil','Ford','Fiesta','plomo','2019-01-03',250,300000,0),('XD4913',100,'Automovil','Chevrolet','Aveo','blanco','2005-10-12',150,120000,0),('XF3O13',20,'Automovil','Subaru','Impreza','amarillo','2000-01-25',200,100000,0),('XSZA51',40,'Camioneta','Mitsubishi','L-200','rojo','2019-03-12',300,39000,0),('YETA69',80,'Camioneta','Nissan','NP300','naranjo','2018-11-30',280,27000,0);
+INSERT INTO `Vehiculo` VALUES ('AADQ37',90,'SUV','Chevrolet','Tracker','rojo','2019-03-12',1550,31000,0),('ALCZ25',90,'Furgoneta','Toyota','Hiace','verde','2019-01-23',3450,23000,0),('ALOM25',20,'Motocicleta Deportiva','Honda','CBR1000','rojo','2019-02-21',190,190000,1),('APEX21',30,'Automovil','Audi','A4','negro','2011-03-01',330,255000,0),('ASSW11',10,'Camioneta','Ford','F20','negro','2019-02-01',230,400000,0),('DFAR54',70,'Automovil','Toyota','Hilux','naranjo','2019-01-03',220,22000,0),('FEFG35',40,'Scooter','Yamaha','NMAX','blanco','2019-05-01',120,90000,0),('HJNG12',50,'SUV','Chery','Tiggo 5','rojo','2019-02-04',250,21000,0),('HVYD21',20,'SUV','Chery','Tiggo 5','rojo','2019-02-01',120,210000,1),('IHYT73',50,'Automovil','Kia','Rio 5','blanco','2017-05-14',260,29000,0),('KFCH90',60,'Scooter','Yamaha','NMAX','azul','2019-04-26',100,10000,0),('KLLD09',30,'Automovil','Mitsubishi','Lancer Evo','negro','2019-02-01',220,300000,0),('LKKA19',80,'SUV','Kia','Sportage C','negro','2019-03-12',950,30000,0),('MNGA12',60,'Motocicleta Deportiva','Honda','CBR1000','negro','2019-02-13',300,19000,0),('MOLA77',70,'Automovil','Alfa Romeo','Giulia Quadrifoglio','cafe','2019-03-12',220,50000,0),('NKSH67',10,'AutoMovil','Hiundait','Accent','verde','2019-04-10',180,249000,0),('UKWO27',60,'Automovil','Ford','Fiesta','negro','2019-01-15',250,30000,1),('VTRW23',100,'Automovil','Ford','Fiesta','plomo','2019-01-03',250,300000,0),('XD4913',100,'Automovil','Chevrolet','Aveo','blanco','2005-10-12',150,120000,0),('XF3O13',20,'Automovil','Subaru','Impreza','amarillo','2000-01-25',200,100000,0),('XSZA51',40,'Camioneta','Mitsubishi','L-200','rojo','2019-03-12',300,39000,0),('YETA69',80,'Camioneta','Nissan','NP300','naranjo','2018-11-30',280,27000,0);
 /*!40000 ALTER TABLE `Vehiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -284,4 +284,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-17 13:20:48
+-- Dump completed on 2019-09-24 20:46:21
