@@ -6,7 +6,7 @@
             <div class="col-md-4">
                 <h3>Filtrar por:</h3>
                 <!--quizas alla que arreglarlo, es lo unico que se me ocurrio hasta ahora-->
-                <form action="/filtrar/<%=dataStore.id_sucursal%>/<%=dataStore.fecha_retiro%>/<%=dataStore.fecha_devolucion%>" method="POST">
+                <form action="/filtrar" method="POST">
                     <div class="row">
                             <label>Tipo</label>
                             <input type="text" name="tipo" class="form-control" placeholder="tipo">
@@ -62,7 +62,7 @@
                                         <td><%= data[i].kilometraje %></td>
                                         <td><%= data[i].precio %></td>
                                         <td>
-                                            <a href="/arrendar/<%=data[i].matricula%>/<%=dataStore.id_sucursal%>/<%=dataStore.fecha_retiro%>/<%=dataStore.fecha_devolucion%>" class="btn btn-danger">Reservar</a>
+                                            <a href="/arrendar/<%=data[i].matricula%>" class="btn btn-danger">Reservar</a>
                                         </td>
                                     </tr>
                                 <%}%>
