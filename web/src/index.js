@@ -6,12 +6,12 @@ const myConnection = require('express-myconnection');
 
 const ServerApp = express(); //server
 //Importing routers
-const SRVroutes=require('./routers/SRVrouter'); //tengo all routes de product dentro de custRout 
+const SRVroutes=require('./routers/SRVrouter'); //tengo all routes de product dentro de SRVroutes 
 
 //Settings -> configuraciones de express
 ServerApp.set('port', process.env.PORT || 3000); 
 ServerApp.set('view engine','ejs'); //procesador de html
-ServerApp.set('views', path.join(__dirname,'views')); //ejecuta index.js, y hacia q carpetas
+ServerApp.set('views', path.join(__dirname,'views')); //ejecuta index.js, y hacia q carpetas 
 
 //Middlewares -> fction q se ejecuta antes de peticion usuario
 ServerApp.use(morgan('dev')); //peticion a consola

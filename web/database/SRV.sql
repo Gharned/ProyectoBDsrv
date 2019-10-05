@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.17, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
 --
--- Host: localhost    Database: SRV
+-- Host: localhost    Database: carro_renta
 -- ------------------------------------------------------
--- Server version	8.0.17
+-- Server version	5.7.27-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,14 +21,14 @@
 
 DROP TABLE IF EXISTS `Cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Cliente` (
   `rut_cliente` int(32) NOT NULL,
   `telefono` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `fecha_nac` date DEFAULT NULL,
   PRIMARY KEY (`rut_cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Direccion_sucursal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Direccion_sucursal` (
   `id_sucursal` int(11) NOT NULL,
   `calle` varchar(50) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `Direccion_sucursal` (
   `numero` int(11) NOT NULL,
   PRIMARY KEY (`id_sucursal`),
   CONSTRAINT `Direccion_sucursal_ibfk_1` FOREIGN KEY (`id_sucursal`) REFERENCES `Sucursal` (`id_sucursal`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Empleado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Empleado` (
   `rut_empleado` int(32) NOT NULL,
   `id_sucursal` int(11) DEFAULT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `Empleado` (
   PRIMARY KEY (`rut_empleado`),
   KEY `id_sucursal` (`id_sucursal`),
   CONSTRAINT `Empleado_ibfk_1` FOREIGN KEY (`id_sucursal`) REFERENCES `Sucursal` (`id_sucursal`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Nombre_cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Nombre_cliente` (
   `rut_cliente` int(32) NOT NULL,
   `primer_nom` varchar(30) NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `Nombre_cliente` (
   `apellido_mat` varchar(30) NOT NULL,
   PRIMARY KEY (`rut_cliente`),
   CONSTRAINT `Nombre_cliente_ibfk_1` FOREIGN KEY (`rut_cliente`) REFERENCES `Cliente` (`rut_cliente`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Nombre_empleado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Nombre_empleado` (
   `rut_empleado` int(32) NOT NULL,
   `primer_nom` varchar(30) DEFAULT NULL,
@@ -139,7 +139,7 @@ CREATE TABLE `Nombre_empleado` (
   `apellido_mat` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`rut_empleado`),
   CONSTRAINT `Nombre_empleado_ibfk_1` FOREIGN KEY (`rut_empleado`) REFERENCES `Empleado` (`rut_empleado`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +158,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Renta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Renta` (
   `id_renta` int(11) NOT NULL AUTO_INCREMENT,
   `rut_cliente` int(32) DEFAULT NULL,
@@ -175,7 +175,7 @@ CREATE TABLE `Renta` (
   KEY `matricula` (`matricula`),
   CONSTRAINT `Renta_ibfk_1` FOREIGN KEY (`rut_cliente`) REFERENCES `Cliente` (`rut_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `Renta_ibfk_2` FOREIGN KEY (`matricula`) REFERENCES `Vehiculo` (`matricula`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `Renta` (
 
 LOCK TABLES `Renta` WRITE;
 /*!40000 ALTER TABLE `Renta` DISABLE KEYS */;
-INSERT INTO `Renta` VALUES (1,19941255,'ALOM25','En Curso','2019-08-02 13:00:00',10,'Valparaiso','2019-11-30 08:30:00',10,'Valparaiso'),(2,19887114,'MOLA77','Cancelada','2019-05-01 11:00:00',70,'Maule','2019-07-20 08:30:00',10,'Valparaiso'),(3,19824957,'APEX21','Finalizada','2019-01-01 11:00:00',70,'Maule','2019-08-13 08:45:00',30,'Santiago'),(4,20343124,'UKWO27','En Curso','2019-04-05 15:00:00',60,'Coquimbo','2019-07-10 14:30:00',60,'Coquimbo'),(5,19328308,'AADQ37','Finalizada','2019-05-05 14:30:00',90,'Araucania','2019-10-20 17:15:00',90,'Araucania');
+INSERT INTO `Renta` VALUES (6,19941255,'ALOM25','En Curso','2019-08-02 13:00:00',10,'Valparaiso','2019-11-30 08:30:00',10,'Valparaiso'),(7,19887114,'MOLA77','Cancelada','2019-05-01 11:00:00',70,'Maule','2019-07-20 08:30:00',10,'Valparaiso'),(8,19824957,'APEX21','Finalizada','2019-01-01 11:00:00',70,'Maule','2019-08-13 08:45:00',30,'Santiago'),(9,20343124,'UKWO27','En Curso','2019-04-05 15:00:00',60,'Coquimbo','2019-07-10 14:30:00',60,'Coquimbo'),(10,19328308,'AADQ37','Finalizada','2019-05-05 14:30:00',90,'Araucania','2019-10-20 17:15:00',90,'Araucania');
 /*!40000 ALTER TABLE `Renta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,16 +194,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Siniestro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Siniestro` (
-  `id_siniestro` int(11) NOT NULL,
+  `id_siniestro` int(11) NOT NULL AUTO_INCREMENT,
   `matricula` varchar(6) DEFAULT NULL,
   `fecha_siniestro` date DEFAULT NULL,
   `descripcion` text,
+  `nombre_respon` varchar(32) NOT NULL,
   PRIMARY KEY (`id_siniestro`),
   KEY `matricula` (`matricula`),
-  CONSTRAINT `Siniestro_ibfk_1` FOREIGN KEY (`matricula`) REFERENCES `Vehiculo` (`matricula`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `Siniestro_ibfk_1` FOREIGN KEY (`matricula`) REFERENCES `Vehiculo` (`matricula`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,6 +213,7 @@ CREATE TABLE `Siniestro` (
 
 LOCK TABLES `Siniestro` WRITE;
 /*!40000 ALTER TABLE `Siniestro` DISABLE KEYS */;
+INSERT INTO `Siniestro` VALUES (1,'KJDA','2019-06-25','El Auto estaba estacionado en Playa Ancha cuando veo un tipo rompiendo el vidrio y llevandocelo, Lo lamento.','Boris Toro'),(2,'JOTA21','2018-03-02','Estrelle la camioneta con un pose y el poste se le callo en la parte del copiloto y luego una señora lo choca por el lado.','Juan Valenzuela'),(3,'LLYF23','2019-10-02','EL auto se me fue robado a traves de un portonaso.','Elvis Tek'),(4,'PALA55','2019-12-03','La moto fue destrosada por un camion.','Peter Porker'),(5,'LOL19','2019-12-31','El auto fue chocado en la noche de año nuevo. gracias a una persona que condujo borracho','Lola Mento');
 /*!40000 ALTER TABLE `Siniestro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,14 +223,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Sucursal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Sucursal` (
   `id_sucursal` int(11) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `hora_apertura` time DEFAULT NULL,
   `hora_cierre` time DEFAULT NULL,
   PRIMARY KEY (`id_sucursal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +249,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Vehiculo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Vehiculo` (
   `matricula` varchar(6) NOT NULL,
   `id_sucursal` int(11) NOT NULL,
@@ -262,7 +264,7 @@ CREATE TABLE `Vehiculo` (
   PRIMARY KEY (`matricula`),
   KEY `id_sucursal` (`id_sucursal`),
   CONSTRAINT `Vehiculo_ibfk_1` FOREIGN KEY (`id_sucursal`) REFERENCES `Sucursal` (`id_sucursal`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,7 +273,7 @@ CREATE TABLE `Vehiculo` (
 
 LOCK TABLES `Vehiculo` WRITE;
 /*!40000 ALTER TABLE `Vehiculo` DISABLE KEYS */;
-INSERT INTO `Vehiculo` VALUES ('AADQ37',90,'SUV','Chevrolet','Tracker','rojo','2019-03-12',1550,31000,0),('ALCZ25',90,'Furgoneta','Toyota','Hiace','verde','2019-01-23',3450,23000,0),('ALOM25',20,'Motocicleta Deportiva','Honda','CBR1000','rojo','2019-02-21',190,190000,1),('APEX21',30,'Automovil','Audi','A4','negro','2011-03-01',330,255000,0),('ASSW11',10,'Camioneta','Ford','F20','negro','2019-02-01',230,400000,0),('DFAR54',70,'Automovil','Toyota','Hilux','naranjo','2019-01-03',220,22000,0),('FEFG35',40,'Scooter','Yamaha','NMAX','blanco','2019-05-01',120,90000,0),('HJNG12',50,'SUV','Chery','Tiggo 5','rojo','2019-02-04',250,21000,0),('HVYD21',20,'SUV','Chery','Tiggo 5','rojo','2019-02-01',120,210000,0),('IHYT73',50,'Automovil','Kia','Rio 5','blanco','2017-05-14',260,29000,0),('KFCH90',60,'Scooter','Yamaha','NMAX','azul','2019-04-26',100,10000,0),('KLLD09',30,'Automovil','Mitsubishi','Lancer Evo','negro','2019-02-01',220,300000,0),('LKKA19',80,'SUV','Kia','Sportage C','negro','2019-03-12',950,30000,0),('MNGA12',60,'Motocicleta Deportiva','Honda','CBR1000','negro','2019-02-13',300,19000,0),('MOLA77',70,'Automovil','Alfa Romeo','Giulia Quadrifoglio','cafe','2019-03-12',220,50000,0),('NKSH67',10,'AutoMovil','Hiundait','Accent','verde','2019-04-10',180,249000,0),('UKWO27',60,'Automovil','Ford','Fiesta','negro','2019-01-15',250,30000,1),('VTRW23',100,'Automovil','Ford','Fiesta','plomo','2019-01-03',250,300000,0),('XD4913',100,'Automovil','Chevrolet','Aveo','blanco','2005-10-12',150,120000,0),('XF3O13',20,'Automovil','Subaru','Impreza','amarillo','2000-01-25',200,100000,0),('XSZA51',40,'Camioneta','Mitsubishi','L-200','rojo','2019-03-12',300,39000,0),('YETA69',80,'Camioneta','Nissan','NP300','naranjo','2018-11-30',280,27000,0);
+INSERT INTO `Vehiculo` VALUES ('AADQ37',90,'SUV','Chevrolet','Tracker','rojo','2019-03-12',1550,31000,1),('ALCZ25',90,'Furgoneta','Toyota','Hiace','verde','2019-01-23',3450,23000,0),('ALOM25',20,'Motocicleta Deportiva','Honda','CBR1000','rojo','2019-02-21',190,19000,1),('APEX21',30,'Automovil','Audi','A4','negro','2011-03-01',330,25500,1),('ASSW11',10,'Camioneta','Ford','F20','negro','2019-02-01',230,40000,0),('DFAR54',70,'Automovil','Toyota','Hilux','naranjo','2019-01-03',220,22000,0),('FEFG35',40,'Scooter','Yamaha','NMAX','blanco','2019-05-01',120,9000,0),('HJNG12',50,'SUV','Chery','Tiggo 5','rojo','2019-02-04',250,21000,0),('HVYD21',20,'SUV','Chery','Tiggo 5','rojo','2019-02-01',120,21000,0),('IHYT73',50,'Automovil','Kia','Rio 5','blanco','2017-05-14',260,29000,0),('JOTA21',10,'Camioneta','Nissan','NP300','naranjo','2018-12-01',280,27000,1),('KFCH90',60,'Scooter','Yamaha','NMAX','azul','2019-04-26',100,10000,0),('KJDA',30,'SUV','Chevrolet','Tracker','verde','2019-03-14',1001,31000,1),('KLLD09',30,'Automovil','Mitsubishi','Lancer Evo','negro','2019-02-01',220,30000,0),('LKKA19',80,'SUV','Kia','Sportage C','negro','2019-03-12',950,30000,0),('LLYF23',50,'Automovil','Ford','Fiesta','blanco','2019-01-27',110,30000,1),('LOL19',100,'SUV','Kia','Sportage C','plomo','2019-03-19',904,30000,1),('MNGA12',60,'Motocicleta Deportiva','Honda','CBR1000','negro','2019-02-13',300,19000,0),('MOLA77',70,'Automovil','Alfa Romeo','Giulia Quadrifoglio','cafe','2019-03-12',220,50000,1),('NKSH67',10,'AutoMovil','Hiundait','Accent','verde','2019-04-10',180,24900,0),('PALA55',20,'Motocicleta Deportiva','Honda','CBR1000','naranja','2019-02-24',190,19000,1),('UKWO27',60,'Automovil','Ford','Fiesta','negro','2019-01-15',250,30000,1),('VTRW23',100,'Automovil','Ford','Fiesta','plomo','2019-01-03',250,30000,0),('XD4913',100,'Automovil','Chevrolet','Aveo','blanco','2005-10-12',150,12000,0),('XF3O13',20,'Automovil','Subaru','Impreza','amarillo','2000-01-25',200,10000,0),('XSZA51',40,'Camioneta','Mitsubishi','L-200','rojo','2019-03-12',300,39000,0),('YETA69',80,'Camioneta','Nissan','NP300','naranjo','2018-11-30',280,27000,0);
 /*!40000 ALTER TABLE `Vehiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -284,4 +286,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-24 22:41:03
+-- Dump completed on 2019-10-04 18:22:26
