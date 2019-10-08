@@ -1,0 +1,9 @@
+Comandos a ejecutar:
+
+//cambios
+npm run in: inicia el servidor - DESABILITADO
+
+//actuales
+npm run build: convierte ts a js cuando hago un cambio
+npm run dev: inicia el servidor
+
