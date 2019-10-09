@@ -1,0 +1,55 @@
+<% include parts/_header %>
+
+<div class="container">
+    <h2>Buscar Vehiculo en:</h2>
+    <form action="/buscar" method="POST">
+          <div class="row"> <!--fila 1-->
+            <div class="col"><!--fila 1 columna 1-->
+              <div class="form-group">
+                <label for="regionSelect">Region retiro</label>
+                <select class="form-control" id="regionRetSelect">
+                  <%for(var i=0; i<dataSuc.length;i++){%>
+                    <option name="local_retiro" value="<%=dataSuc[i].id_sucursal%>"><%=dataSuc[i].id_sucursal%> <%= dataSuc[i].region%></option>
+                  <%}%>
+                </select>
+              </div>
+            </div>
+            <div class="col"> <!--fila 1 columna 2-->
+              <div class="form-group">
+                <label class="col-form-label">Fecha y hora de retiro</label>
+                <input type="text" name="fecha_retiro" class="form-control" placeholder="YYYY-mm-dd HH:mm:ss">
+              </div>
+            </div>
+          </div>
+          <div class="row"> <!--fila 2-->
+            <div class="col"> <!--fila 2 columna 1-->
+                <div class="form-group">
+                  <label for="regionSelect">Region devolucion</label>
+                  <select class="form-control" id="regionDevSelect">
+                    <%for(var i=0; i<dataSuc.length;i++){%>
+                      <option name="local_devolucion" value="<%=dataSuc[i].id_sucursal%>"><%= dataSuc[i].id_sucursal%> <%= dataSuc[i].region%></option>
+                    <%}%>
+                  </select>
+                </div>
+            </div>
+            <div class="col"> <!--fila 2 columna 2-->
+              <div class="form-group">
+                <label class="col-form-label">Fecha y hora de devolucion</label>
+                <input type="text" name="fecha_devolucion" class="form-control" placeholder="YYYY-mm-dd HH:mm:ss">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row"> <!--fila 3-->
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="" checked="">
+                  Devolver en otra sucursal - opcion desabilitada
+                </label>
+              </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+</div>
+<% include parts/_footer %>
