@@ -21,7 +21,6 @@ class Server{
     }
 
     //METODOS--
-
     config():void{ //son configuraciones de express
         this.app.set('port', process.env.PORT || 3000);
         this.app.use(morgan('dev')); //peticion a consola
@@ -32,11 +31,12 @@ class Server{
         //ademas pasa los datos de post u otros a json para ser obtenidos con req.body
 
         this.app.use(express.urlencoded({extended:false})); //to formulary
+
     }
 
     routes():void{
         this.app.use('/',indexRoutes);
-        this.app.use('/api/rent',rentRoutes); //entutador de la renta
+        this.app.use('/api/rent',rentRoutes); //enrutador de la renta
     }
 
     start():void{

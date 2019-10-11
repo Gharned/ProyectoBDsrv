@@ -29,7 +29,7 @@ class Server {
     }
     routes() {
         this.app.use('/', indexRoutes_1.default);
-        this.app.use('/api/rent', rentRoutes_1.default); //entutador de la renta
+        this.app.use('/api/rent', rentRoutes_1.default); //enrutador de la renta
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

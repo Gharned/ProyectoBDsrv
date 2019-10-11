@@ -11,6 +11,9 @@ class RentRoutes{
 
     config():void{
         this.router.post('/search',rentController.search);
+        this.router.post('/filter',rentController.filter);
+        this.router.get('/reserve/:matricula',rentController.reserveVehicle);
+        this.router.post('/final',rentController.finishied);
     }
 }
 
