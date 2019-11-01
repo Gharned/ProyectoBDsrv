@@ -1,0 +1,62 @@
+
+<div class="container">
+        <div class="row">
+                <form [formGroup]="checkoutFormFilter" (ngSubmit)="onSubmit(checkoutFormFilter.value)">
+                        <div class="row">
+                                <div class="col">
+                                        <label>Tipo</label>
+                                        <input type="text" name="tipo" formControlName="tipo" class="form-control" placeholder="tipo">
+                                </div>
+                                <div class="col">
+                                        <label>Marca</label>
+                                        <input type="text" name="marca" formControlName="marca" class="form-control" placeholder="marca">
+                                </div>
+                                <div class="col">
+                                        <label>Modelo</label>
+                                        <input type="text" name="modelo" formControlName="modelo" class="form-control" placeholder="modelo">
+                                </div>
+                                <div class="col">            
+                                        <label>Anio</label>
+                                        <input type="text" name="anio" formControlName="anio" class="form-control" placeholder="anio">
+                                </div>
+                                <div class="col">
+                                        <label>Kilometraje</label>
+                                        <input type="text" name="kilometraje" formControlName="kilometraje" class="form-control" placeholder="kilometraje">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                </form>
+        </div>
+
+        <div class="row">
+                <div class="col" style="padding:50px 0px 0px;">
+                        <h3>Vehiculos disponibles en la sucursal</h3>
+                        <div class="table-responsive">
+                                <table class="table table-bordered">
+                                        <tr>
+                                                <th>Matricula</th>
+                                                <th>Tipo</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Color</th>
+                                                <th>Anio</th>
+                                                <th>Kilometraje</th>
+                                                <th>Precio</th>
+                                                <th>Accion</th>
+                                        </tr>
+                                                <tr *ngFor="let veh of vehicle">
+                                                <td> {{veh.matricula}}</td>
+                                                <td> {{veh.tipo}}</td>
+                                                <td> {{veh.marca}}</td>
+                                                <td> {{veh.modelo}}</td>
+                                                <td> {{veh.color}}</td>
+                                                <td> {{veh.anio}}</td>
+                                                <td> {{veh.kilometraje}}</td>
+                                                <td> {{veh.precio}}</td>
+                                                <td><a href="" class="btn btn-danger">Reservar</a></td>
+                                        </tr>
+                                </table>
+                        </div>
+                </div>
+        </div>
+</div>

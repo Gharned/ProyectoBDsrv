@@ -1,0 +1,25 @@
+CONSULTAS A LA BASE DE DATOS SRV EN LENGUAJE NATURAL Y MYSQL
+
+
+1.- Mostrar las ganancias de dinero obtenidos en algun mes de las rentas que ya esten finalizadas (conste que lo unico que importa es la fecha de retiro en esta ocasion)
+
+select datediff(r.fecha_devolucion,r.fecha_retiro) as dias from Renta as r; //diferencia de dias en renta
+
+(select r.rut_cliente,(datediff(r.fecha_devolucion,r.fecha_retiro)*v.precio) as precio from Renta as r inner join Vehiculo as v on r.matricula=v.matricula);  //tengo el precio total y rut del cliente
+
+---mysql>  select r.rut_cliente,(datediff(r.fecha_devolucion,r.fecha_retiro)*v.precio) as precio from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where r.estado='Finalizada' and r.fecha_retiro between ('2019-01-01') and ('2019-05-02');
+
+------------------------------------------------------------------------------
+
+1.- Mostrar las ganancias de dinero obtenidos en algun mes de las rentas que ya esten finalizadas (conste que lo unico que importa es la fecha de retiro en esta ocasion)
+
+2.- Mostrar todos los empleados con nombre x que pertenezcan a una sucursal
+
+
+3.- Mostrar los clientes que hayan rentado un auto por 5 meses y hayan sido autos de de un precio mayor a 20000 por dia
+
+4.- Mostrar al cliente que rento el auto el cual tuvo un siniestro
+
+5.- Mostrar en que sucursal cada cliente ah rentado más vehiculos
+
+6.- Mostrar el vehiculo que más han rentado clientes que sean mayores de 50 

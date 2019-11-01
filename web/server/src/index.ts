@@ -6,6 +6,7 @@ import cors from 'cors'; //buscar lo que hace
 //Routes
 import indexRoutes from './routers/indexRoutes';
 import rentRoutes from './routers/rentRoutes';
+import sinisterRoutes from './routers/sinisterRoutes';
 
 
 
@@ -37,6 +38,7 @@ class Server{
     routes():void{
         this.app.use('/',indexRoutes);
         this.app.use('/api/rent',rentRoutes); //enrutador de la renta
+        this.app.use('/api/sinister',sinisterRoutes);
     }
 
     start():void{

@@ -10,6 +10,7 @@ const cors_1 = __importDefault(require("cors")); //buscar lo que hace
 //Routes
 const indexRoutes_1 = __importDefault(require("./routers/indexRoutes"));
 const rentRoutes_1 = __importDefault(require("./routers/rentRoutes"));
+const sinisterRoutes_1 = __importDefault(require("./routers/sinisterRoutes"));
 class Server {
     //de tipo Application del modul de express
     constructor() {
@@ -30,6 +31,7 @@ class Server {
     routes() {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/api/rent', rentRoutes_1.default); //enrutador de la renta
+        this.app.use('/api/sinister', sinisterRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

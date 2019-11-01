@@ -49,10 +49,13 @@ class RentController {
             const datos_devolucion = yield database_1.default.query('select calle,numero,ciudad,region from Direccion_sucursal where id_sucursal=?;', [RentController.dataStore.local_devolucion]);
             const datos_vehiculo = yield database_1.default.query('select marca, modelo, precio from Vehiculo as v where v.matricula=?;', [RentController.dataStore.matricula]);
             const difDias = yield database_1.default.query('select datediff(?,?) as dias;', [RentController.dataStore.fecha_devolucion, RentController.dataStore.fecha_retiro]);
-            //res.send(datos_retiro);
-            res.send(datos_devolucion);
-            //res.send(datos_vehiculo);
-            //res.send(difDias);
+            const datos = {
+                datos_retiro,
+                datos_devolucion,
+                datos_vehiculo,
+                difDias
+            };
+            res.send(datos);
         });
     }
     finishied(req, res) {

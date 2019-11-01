@@ -44,11 +44,13 @@ class RentController{
         const datos_devolucion = await pool.query('select calle,numero,ciudad,region from Direccion_sucursal where id_sucursal=?;',[RentController.dataStore.local_devolucion]);
         const datos_vehiculo = await pool.query('select marca, modelo, precio from Vehiculo as v where v.matricula=?;',[RentController.dataStore.matricula]);
         const difDias = await pool.query('select datediff(?,?) as dias;',[RentController.dataStore.fecha_devolucion,RentController.dataStore.fecha_retiro]);
-        
-        //res.send(datos_retiro);
-        res.send(datos_devolucion);
-        //res.send(datos_vehiculo);
-        //res.send(difDias);
+        const datos={
+            datos_retiro,
+            datos_devolucion,
+            datos_vehiculo,
+            difDias
+        };
+        res.send(datos);
     }
 
     public async finishied(req:Request, res:Response){

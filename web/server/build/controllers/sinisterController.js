@@ -13,13 +13,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class IndexController {
-    list(req, res) {
+class SinisterController {
+    showSinister(req, res) {
+        res.send("Estoy en la vista siniestro");
+    }
+    sentSiniestro(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sucursales = yield database_1.default.query('select id_sucursal,region,ciudad,calle,numero from Direccion_sucursal;'); //termina cuando pueda
-            res.send(sucursales);
+            var formulario = req.body;
+            yield database_1.default.query('insert into Siniestro (matricula,fecha_siniestro,descripcion,nombre_respon) values (?,?,?,?)', [formulario.matricula, formulario.fecha_siniestro, formulario.descripcion, formulario.nombre_respon]);
+            res.send({ message: 'Exito' });
         });
     }
 }
-const indexController = new IndexController();
-exports.default = indexController;
+const sinisterController = new SinisterController();
+exports.default = sinisterController;
