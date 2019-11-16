@@ -10,7 +10,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { RentComponent } from './components/rent/rent.component';
 import { VehiclesListComponent } from './components/vehicles-list/vehicles-list.component';
 import { RentService} from './services/rent.service';
-import { from } from 'rxjs';
 import { RentDetailsComponent } from './components/rent-details/rent-details.component';
 
 @NgModule({

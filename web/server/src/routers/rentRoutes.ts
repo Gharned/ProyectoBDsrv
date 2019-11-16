@@ -13,7 +13,7 @@ class RentRoutes{
         this.router.post('/search',rentController.search);
         this.router.post('/filter',rentController.filter);
         this.router.get('/reserve/:matricula',rentController.reserveVehicle);
-        this.router.post('/final',rentController.finishied);
+        this.router.post('/finalizar',rentController.finishied);
     }
 }
 

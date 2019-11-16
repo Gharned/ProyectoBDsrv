@@ -19,13 +19,13 @@ export class RentComponent implements OnInit {
   constructor(private rentService:RentService, private formBuilder:FormBuilder, private router:Router) { }
 
   ngOnInit() {
-    this.rentService.getSucursales().subscribe(
+    this.rentService.getSucursales().subscribe(  //otengo las sucursales para mostrar
       res=>{
         this.sucursales=res;  //almaceno la respuesta en sucursales
       },
       err=>console.error(err)
     );
-    this.checkoutForm=this.formBuilder.group({
+    this.checkoutForm=this.formBuilder.group({  //inicializo el formulario con valores nulos
       fecha_retiro:"",
       fecha_devolucion:"",
       local_retiro:0,
@@ -33,11 +33,12 @@ export class RentComponent implements OnInit {
     });
   }
 
-  onSubmit(customerData) {
+  onSubmit(customerData) { //se verifica el formulario enviado
     // Process checkout data here
-    this.rentService.storeForm(customerData);
-    this.checkoutForm.reset();
-    this.router.navigate(['/rent/search']); //cuando almacene los valores quiero enviarlo a la ruta..
+
+    this.rentService.storeForm(customerData); //se almacena los datos del formulario
+    this.checkoutForm.reset(); //reseteo del formulario
+    this.router.navigate(['/rent/search']); //cuando almacene los valores, quiero enviarlo a la ruta..
   }
 
 }

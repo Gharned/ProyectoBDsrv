@@ -15,7 +15,7 @@ class RentRoutes {
         this.router.post('/search', rentController_1.default.search);
         this.router.post('/filter', rentController_1.default.filter);
         this.router.get('/reserve/:matricula', rentController_1.default.reserveVehicle);
-        this.router.post('/final', rentController_1.default.finishied);
+        this.router.post('/finalizar', rentController_1.default.finishied);
     }
 }
 const rentRoutes = new RentRoutes();

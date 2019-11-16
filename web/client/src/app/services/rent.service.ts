@@ -16,15 +16,22 @@ export class RentService {
   storeForm(sucursal:any){
     this.store=sucursal;
   }
+  
 
-  getSucursales(){
+  getSucursales(){ //obtengo sucursales
     return this.http.get(this.INDEX_URI);
   }
-  postSearch(){
+  postSearch(){ //se busca en la sucursal
     return this.http.post(`${this.API_URI}/rent/search`,this.store);
   }
-  postFilter(customerFilter:any){
-    return this.http.post(`${this.API_URI}/rent/filter`,customerFilter)
+  postFilter(customerFilter:any){ //se filtra caracteristicas en el vehiculo
+    return this.http.post(`${this.API_URI}/rent/filter`,customerFilter);
+  }
+  getReserve(matricula: string){ //se reserva el auto con esa matricula
+    return this.http.get(`${this.API_URI}/rent/reserve/${matricula}`);
+  }
+  postFinishReserve(customerForm:any){ //se envia el formulario de los datos del clientes
+    return this.http.post(`${this.API_URI}/rent/finalizar`,customerForm);
   }
 
 }

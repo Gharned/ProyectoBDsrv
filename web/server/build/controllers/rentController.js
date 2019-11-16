@@ -15,14 +15,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 //import { queryCallback } from "mysql";
 class RentController {
+    //METHODS
     search(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             RentController.dataStore = req.body; //se obtiene, fecha_dev, fecha_ret, local_dev y local_dev
-            const region_r = yield database_1.default.query('select region from Direccion_sucursal where id_sucursal=?', [RentController.dataStore.local_retiro]);
-            const region_d = yield database_1.default.query('select region from Direccion_sucursal where id_sucursal=?', [RentController.dataStore.local_devolucion]);
+            const region_r = yield database_1.default.query('select region from Direccion_sucursal where id_sucursal=?', [RentController.dataStore.local_retiro]); //asigno region ret
+            const region_d = yield database_1.default.query('select region from Direccion_sucursal where id_sucursal=?', [RentController.dataStore.local_devolucion]); //asigno region dev
             RentController.dataStore.region_retiro = region_r[0].region; //ya que es rowData rento que usar indice
             RentController.dataStore.region_devolucion = region_d[0].region;
-            console.log(RentController.dataStore);
+            //console.log(RentController.dataStore);
             const vehiculos = yield database_1.default.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=0 and id_sucursal=?', [RentController.dataStore.local_retiro]);
             res.send(vehiculos);
         });
@@ -33,7 +34,7 @@ class RentController {
             //console.log(filtros);
             var resultado = ""; //guadara un string, con los filtros que seran consultados
             for (var i in filtros) { //for que concatena string de consulta
-                if (!(filtros[i] === '')) { //si tiene contenido el filtro lo coloco
+                if ((!(filtros[i] === '')) && (!(filtros[i] === null))) { //si tiene contenido el filtro lo coloco
                     resultado += " and " + i + "='" + filtros[i] + "'"; //tomamos los filtros concatenados para consulta
                 }
             }
@@ -45,14 +46,14 @@ class RentController {
     reserveVehicle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             RentController.dataStore.matricula = req.params.matricula;
-            const datos_retiro = yield database_1.default.query('select calle,numero,ciudad,region from Direccion_sucursal where id_sucursal=?;', [RentController.dataStore.local_retiro]);
-            const datos_devolucion = yield database_1.default.query('select calle,numero,ciudad,region from Direccion_sucursal where id_sucursal=?;', [RentController.dataStore.local_devolucion]);
-            const datos_vehiculo = yield database_1.default.query('select marca, modelo, precio from Vehiculo as v where v.matricula=?;', [RentController.dataStore.matricula]);
-            const difDias = yield database_1.default.query('select datediff(?,?) as dias;', [RentController.dataStore.fecha_devolucion, RentController.dataStore.fecha_retiro]);
+            const dataVeh = (yield database_1.default.query('select marca, modelo, precio from Vehiculo as v where v.matricula=?;', [RentController.dataStore.matricula])); //obtengo detalles del vehiculo
+            const dataRet = (yield database_1.default.query('select calle,numero,ciudad,region from Direccion_sucursal where id_sucursal=?;', [RentController.dataStore.local_retiro])); //asigno detalles
+            const dataDev = (yield database_1.default.query('select calle,numero,ciudad,region from Direccion_sucursal where id_sucursal=?;', [RentController.dataStore.local_devolucion])); //asigno detalles
+            const difDias = (yield database_1.default.query('select datediff(?,?) as dias;', [RentController.dataStore.fecha_devolucion, RentController.dataStore.fecha_retiro])); //obtengo dias que usara el vehiculo para detalles
             const datos = {
-                datos_retiro,
-                datos_devolucion,
-                datos_vehiculo,
+                dataVeh,
+                dataRet,
+                dataDev,
                 difDias
             };
             res.send(datos);
@@ -69,8 +70,8 @@ class RentController {
                 yield database_1.default.query('insert into Nombre_cliente (rut_cliente,primer_nom,apellido_pat,apellido_mat) values (?,?,?,?);', [cliente.rut_cliente, cliente.primer_nom, cliente.apellido_pat, cliente.apellido_mat]);
             }
             yield database_1.default.query('insert into Renta set ?;', [RentController.dataStore]);
-            const nada = yield database_1.default.query('update Vehiculo set estado=1 where matricula=?;', [RentController.dataStore.matricula]);
-            res.send(nada);
+            yield database_1.default.query('update Vehiculo set estado=1 where matricula=?;', [RentController.dataStore.matricula]);
+            res.send({ text: "exito" });
         });
     }
 }

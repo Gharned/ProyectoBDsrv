@@ -52,8 +52,9 @@
                                                 <td> {{veh.color}}</td>
                                                 <td> {{veh.anio}}</td>
                                                 <td> {{veh.kilometraje}}</td>
-                                                <td> {{veh.precio}}</td>
-                                                <td><a href="" class="btn btn-danger">Reservar</a></td>
+                                                <td> {{veh.precio | currency}}</td>
+                                                <!--direcciono a una ruta para reservar el vehiculo-->
+                                                <td><a [routerLink]="['/rent/reserve',veh.matricula]" class="btn btn-danger">Reservar</a></td>
                                         </tr>
                                 </table>
                         </div>

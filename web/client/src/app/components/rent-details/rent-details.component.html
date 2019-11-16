@@ -1,1 +1,74 @@
-<p>rent-details works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form [formGroup]="checkoutFormClient" (ngSubmit)="onSubmit(checkoutFormClient.value)">
+                <div class="row">
+                    <label>Rut</label>
+                    <input type="text" name="rut_cliente" formControlName="rut_cliente" class="form-control" placeholder="123456789">
+                </div>
+                <div class="row">
+                    <label>Primer nombre</label>
+                    <input type="text" name="primer_nom" formControlName="primer_nom" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="row">
+                    <label>Apellido Paterno</label>
+                    <input type="text" name="apellido_pat" formControlName="apellido_pat" class="form-control" placeholder="Paterno">
+                </div>
+                <div class="row">
+                    <label>Apellido Materno</label>
+                    <input type="text" name="apellido_mat" formControlName="apellido_mat" class="form-control" placeholder="Materno">
+                </div>
+                <div class="row">
+                    <label>Telefono</label>
+                    <input type="text" name="telefono" formControlName="telefono" class="form-control" placeholder="9xxxxxxxx">
+                </div>
+                <div class="row">
+                    <label>Email</label>
+                    <input type="text" name="email" formControlName="email" class="form-control" placeholder="email@dominio.x">
+                </div>
+                <div class="row">
+                    <label>Fecha de nacimiento</label>
+                    <input type="text" name="fecha_nac" formControlName="fecha_nac" class="form-control" placeholder="YYYY-MM-DD">
+                </div><br>
+                <button type="submit" class="btn btn-primary">Finalizar</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <h3 class=text-center>Detalles del arriendo</h3>
+            <div class="containter">
+                <div class="row"> <!--row1 retiro-->
+                    <div class="card bg-light mb-3" style="width:100%">
+                        <div class="card-header text-primary">Local retiro del vehiculo</div>
+                        <div class="card-body">
+                          <p class="card-text">{{details.dataRet[0].calle}} {{details.dataRet[0].numero}}, {{details.dataRet[0].ciudad}}, {{details.dataRet[0].region}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> <!--row2 devolucion-->
+                    <div class="card bg-light mb-3" style="width:100%">
+                        <div class="card-header text-primary">Local devolucion del vehiculo</div>
+                        <div class="card-body">
+                          <p class="card-text">{{details.dataDev[0].calle}} {{details.dataDev[0].numero}}, {{details.dataDev[0].ciudad}}, {{details.dataDev[0].region}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> <!--row3 vehiculo-->
+                    <div class="card bg-light mb-3" style="width:100%">
+                        <div class="card-header text-primary">Vehiculo</div>
+                        <div class="card-body">
+                          <p class="card-text">{{details.dataVeh[0].marca}} {{details.dataVeh[0].modelo}}</p>
+                          <p class="card-text">Por dia: {{details.dataVeh[0].precio | currency}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> <!--row4 total-->
+                        <label class="p-3 mb-2 bg-info text-white" style="width:100%">Dias de arriendo: {{details.difDias[0].dias}}</label><br>
+                        <label class="p-3 mb-2 bg-dark text-white" style="width:100%">Total: {{ (details.difDias[0].dias*details.dataVeh[0].precio) | currency}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

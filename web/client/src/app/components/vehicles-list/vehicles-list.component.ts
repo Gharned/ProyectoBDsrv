@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from "@angular/forms";
 
 import {RentService} from  '../../services/rent.service';
@@ -17,13 +17,13 @@ export class VehiclesListComponent implements OnInit {
   constructor(private rentService: RentService, private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-    this.rentService.postSearch().subscribe(
+    this.rentService.postSearch().subscribe( //se busca en la sucursal
       res=>{
         this.vehicle=res;  //almaceno la respuesta en vehiculo
       },
       err=>console.error(err)
     );
-    this.checkoutFormFilter=this.formBuilder.group({
+    this.checkoutFormFilter=this.formBuilder.group({ //se inicializa el formulario de filtro
       tipo:"",
       marca:"",
       modelo:"",
@@ -33,7 +33,7 @@ export class VehiclesListComponent implements OnInit {
   }
   
 
-  onSubmit(customerFilter) {
+  onSubmit(customerFilter) { //se verifica el formulario de filtro
     // Process checkout data here
     this.rentService.postFilter(customerFilter).subscribe(
       res=>{
