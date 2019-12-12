@@ -11,6 +11,8 @@ select datediff(r.fecha_devolucion,r.fecha_retiro) as dias from Renta as r; //di
 
 ------------------------------------------------------------------------------
 
+4+
+
 1.- Mostrar las ganancias de dinero obtenidos en algun mes de las rentas que ya esten finalizadas (conste que lo unico que importa es la fecha de retiro en esta ocasion)
 
 2.- Mostrar todos los empleados con nombre x que pertenezcan a una sucursal
@@ -23,3 +25,17 @@ select datediff(r.fecha_devolucion,r.fecha_retiro) as dias from Renta as r; //di
 5.- Mostrar en que sucursal cada cliente ah rentado más vehiculos
 
 6.- Mostrar el vehiculo que más han rentado clientes que sean mayores de 50 
+
+7.-
+
+8.- 
+
+9.-
+
+10.-
+
+11.-
+
+12.-
+
+

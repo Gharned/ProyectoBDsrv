@@ -15,10 +15,12 @@ export class RentComponent implements OnInit {
 
   sucursales:any=[]; //guarda la peticion de sucursales
   checkoutForm:any;
+  errorAlert:boolean;
 
   constructor(private rentService:RentService, private formBuilder:FormBuilder, private router:Router) { }
 
   ngOnInit() {
+    this.errorAlert=false;
     this.rentService.getSucursales().subscribe(  //otengo las sucursales para mostrar
       res=>{
         this.sucursales=res;  //almaceno la respuesta en sucursales
@@ -35,10 +37,22 @@ export class RentComponent implements OnInit {
 
   onSubmit(customerData) { //se verifica el formulario enviado
     // Process checkout data here
-
-    this.rentService.storeForm(customerData); //se almacena los datos del formulario
-    this.checkoutForm.reset(); //reseteo del formulario
-    this.router.navigate(['/rent/search']); //cuando almacene los valores, quiero enviarlo a la ruta..
+    //AQUI DEBE IR UN TROZO DE CODIGO QUE VERIFIQUE QUE TODOS LOS PARAMETROS ESTEN CORRECTOS Y BIEN
+    if(!(this.rentService.getFechaRet()=="") && !(this.rentService.getHoraRet()=="") && !(this.rentService.getFechaDev()=="") && !(this.rentService.getHoraDev()=="") && !(customerData.local_retiro=="") && !(customerData.local_devolucion=="")){
+      customerData.fecha_retiro=this.rentService.getFechaRet()+" "+this.rentService.getHoraRet();
+      customerData.fecha_devolucion=this.rentService.getFechaDev()+" "+this.rentService.getHoraDev();
+      console.log(customerData);
+      
+      this.rentService.storeForm(customerData); //se almacena los datos del formulario
+      this.checkoutForm.reset(); //reseteo del formulario
+      this.router.navigate(['/rent/search']); //cuando almacene los valores, quiero enviarlo a la ruta..
+      
+    }else{
+      //aqui debe ir un mensaje de error activado con un metodo listener
+      console.log("no estan llenos todos los datos");
+      this.errorAlert=true;
+    }
+    
   }
 
 }

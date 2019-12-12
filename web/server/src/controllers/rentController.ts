@@ -20,7 +20,7 @@ class RentController{
 
         //console.log(RentController.dataStore);
         
-        const vehiculos = await pool.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=0 and id_sucursal=?',[RentController.dataStore.local_retiro]);
+        const vehiculos = await pool.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio,image_url from Vehiculo where estado=0 and id_sucursal=?',[RentController.dataStore.local_retiro]);
         res.send(vehiculos);
     }
 
@@ -34,7 +34,7 @@ class RentController{
             }
         }
         //vehiculos filtrados
-        const fVehiculos= await pool.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=0 and id_sucursal=?'+resultado+';',[RentController.dataStore.local_retiro]);
+        const fVehiculos= await pool.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio,image_url from Vehiculo where estado=0 and id_sucursal=?'+resultado+';',[RentController.dataStore.local_retiro]);
         res.send(fVehiculos);    
     }
     

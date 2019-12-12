@@ -1,0 +1,104 @@
+
+
+create table Cliente(
+rut_cliente integer(32) not null,
+telefono integer not null,
+email varchar(50) not null,
+fecha_nac date,
+primary key(rut_cliente)
+);
+
+create table Nombre_cliente(
+rut_cliente integer(32) not null,
+primer_nom varchar(30) not null,
+apellido_pat varchar(30) not null,
+apellido_mat varchar(30) not null,
+primary key(rut_cliente),
+foreign key(rut_cliente) references Cliente(rut_cliente) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+create table Sucursal(
+id_sucursal integer,
+email varchar(50),
+hora_apertura time,
+hora_cierre time,
+primary key(id_sucursal)
+);
+
+create table Direccion_sucursal(
+id_sucursal integer not null,
+calle varchar(50) not null,
+region varchar(50) not null,
+ciudad varchar(50) not null,
+numero integer not null,
+primary key(id_sucursal),
+foreign key(id_sucursal) references Sucursal(id_sucursal) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+create table Vehiculo(
+matricula varchar(6) not null,
+id_sucursal integer not null,
+tipo varchar(50) not null,
+marca varchar(50) not null,
+modelo varchar(50) not null,
+color varchar(50) not null,
+anio integer not null,
+kilometraje int(40) not null,
+precio integer(32) not null,
+estado boolean,
+image_url text,
+primary key(matricula),
+foreign key (id_sucursal) references Sucursal(id_sucursal) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+create table Renta(
+id_renta integer auto_increment,
+rut_cliente integer(32),
+matricula varchar(6),
+estado enum('Cancelada', 'En Curso', 'Finalizada'),
+fecha_retiro datetime,
+local_retiro integer,
+region_retiro varchar(40),
+fecha_devolucion datetime,
+local_devolucion integer,
+region_devolucion varchar(40),
+primary key(id_renta),
+foreign key(rut_cliente) references Cliente(rut_cliente) ON UPDATE CASCADE ON DELETE CASCADE,
+foreign key(matricula) references Vehiculo(matricula) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+create table Empleado(
+rut_empleado integer(32),
+id_sucursal integer,
+email varchar(50),
+cargo varchar(50),
+contrasena varchar(50),
+primary key(rut_empleado),
+foreign key(id_sucursal) references Sucursal(id_sucursal) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+create table Nombre_empleado(
+rut_empleado integer(32),
+primer_nom varchar(30),
+apellido_pat varchar(30),
+apellido_mat varchar(30),
+primary key(rut_empleado),
+foreign key(rut_empleado) references Empleado(rut_empleado) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+create table Siniestro(
+id_siniestro integer,
+matricula varchar(6),
+fecha_siniestro date,
+descripcion text,
+primary key(id_siniestro),
+foreign key(matricula) references Vehiculo(matricula) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+

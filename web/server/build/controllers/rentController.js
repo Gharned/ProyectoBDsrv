@@ -24,7 +24,7 @@ class RentController {
             RentController.dataStore.region_retiro = region_r[0].region; //ya que es rowData rento que usar indice
             RentController.dataStore.region_devolucion = region_d[0].region;
             //console.log(RentController.dataStore);
-            const vehiculos = yield database_1.default.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=0 and id_sucursal=?', [RentController.dataStore.local_retiro]);
+            const vehiculos = yield database_1.default.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio,image_url from Vehiculo where estado=0 and id_sucursal=?', [RentController.dataStore.local_retiro]);
             res.send(vehiculos);
         });
     }
@@ -39,7 +39,7 @@ class RentController {
                 }
             }
             //vehiculos filtrados
-            const fVehiculos = yield database_1.default.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio from Vehiculo where estado=0 and id_sucursal=?' + resultado + ';', [RentController.dataStore.local_retiro]);
+            const fVehiculos = yield database_1.default.query('select matricula,tipo,marca,modelo,color,anio,kilometraje,precio,image_url from Vehiculo where estado=0 and id_sucursal=?' + resultado + ';', [RentController.dataStore.local_retiro]);
             res.send(fVehiculos);
         });
     }

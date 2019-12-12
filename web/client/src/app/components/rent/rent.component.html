@@ -1,6 +1,9 @@
 <div class="container">
+
     <!--interpolation binding {{}} sirve para unir una propiedad a lo que estamos mostrando en la vista-->
-    <form class="was-validated" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" >
+    
+    <form  [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" >
+        <!--class="was-validated"-->
         <div class="row">
             <div class="col-md-5">
                 <h6>Sucursal de retiro</h6>
@@ -11,34 +14,37 @@
                     </select>
                     <div class="invalid-feedback">Example invalid custom select feedback</div>
                 </div>
-                <h6>Sucursal de devolucion</h6>
-                <div class="form-group">
-                    <select class="custom-select" formControlName="local_devolucion" required>
-                        <option value="">Open this select menu</option>
-                        <option *ngFor="let suc of sucursales" [value]="suc.id_sucursal">{{suc.region}}, {{suc.ciudad}}, {{suc.calle}} {{suc.numero}} </option>
-                    </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                </div>
             </div>
-
+        
             <div class="col-md-2"></div>
-
             <div class="col-md-5">
-                <div class="row">
-                    <label for="fecha_retiro">Fecha de retiro</label>
-                    <input type="text" formControlName="fecha_retiro" class="form-control" id="fecha_retiro" placeholder="YYYY-mm-dd HH:mm:ss"  required>
-                    <div class="valid-feedback">
-                    Looks good!
+                    <h6>Sucursal de devolucion</h6>
+                    <div class="form-group">
+                        <select class="custom-select" formControlName="local_devolucion" required>
+                            <option value="">Open this select menu</option>
+                            <option *ngFor="let suc of sucursales" [value]="suc.id_sucursal">{{suc.region}}, {{suc.ciudad}}, {{suc.calle}} {{suc.numero}} </option>
+                        </select>
+                        <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
-                </div>
-                <div class="row">
-                        <label for="fecha_devolucion">Fecha de devolucion</label>
-                        <input type="text" formControlName="fecha_devolucion" class="form-control" id="fecha_devolucion" placeholder="YYYY-mm-dd HH:mm:ss"  required>
-                        <div class="valid-feedback">
-                        Looks good!
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col">
+                        <div class="row justify-content-center">
+                                <app-datepicker></app-datepicker>
+                        </div>
+                        <div class="row justify-content-center">
+                                <div class="col-md-3 offset-md-1">
+                                    <h6>Hora retiro</h6>
+                                    <app-timepicker [tipo]="true"></app-timepicker>            
+                                </div>
+                                <div class="col-md-3 offset-md-1">
+                                    <h6>Hora devolucion</h6>
+                                    <app-timepicker [tipo]="false"></app-timepicker>
+                                </div>
                         </div>
                 </div>
-            </div>
         </div>
         <button class="btn btn-primary" type="submit">Submit form</button>
     </form>
