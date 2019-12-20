@@ -37,8 +37,8 @@ export class RentComponent implements OnInit {
 
   onSubmit(customerData) { //se verifica el formulario enviado
     // Process checkout data here
-    //AQUI DEBE IR UN TROZO DE CODIGO QUE VERIFIQUE QUE TODOS LOS PARAMETROS ESTEN CORRECTOS Y BIEN
-    if(!(this.rentService.getFechaRet()=="") && !(this.rentService.getHoraRet()=="") && !(this.rentService.getFechaDev()=="") && !(this.rentService.getHoraDev()=="") && !(customerData.local_retiro=="") && !(customerData.local_devolucion=="")){
+    //VERIFICA QUE TODOS LOS PARAMETROS ESTEN CORRECTOS Y BIEN
+    if(!(this.rentService.getFechaRet()=="") && !(this.rentService.getHoraRet()==undefined) && !(this.rentService.getFechaDev()=="") && !(this.rentService.getHoraDev()==undefined) && !(customerData.local_retiro=="") && !(customerData.local_devolucion=="")){
       customerData.fecha_retiro=this.rentService.getFechaRet()+" "+this.rentService.getHoraRet();
       customerData.fecha_devolucion=this.rentService.getFechaDev()+" "+this.rentService.getHoraDev();
       console.log(customerData);
@@ -49,6 +49,7 @@ export class RentComponent implements OnInit {
       
     }else{
       //aqui debe ir un mensaje de error activado con un metodo listener
+
       console.log("no estan llenos todos los datos");
       this.errorAlert=true;
     }

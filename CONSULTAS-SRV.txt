@@ -1,41 +1,57 @@
-CONSULTAS A LA BASE DE DATOS SRV EN LENGUAJE NATURAL Y MYSQL
 
 
-1.- Mostrar las ganancias de dinero obtenidos en algun mes de las rentas que ya esten finalizadas (conste que lo unico que importa es la fecha de retiro en esta ocasion)
-
-select datediff(r.fecha_devolucion,r.fecha_retiro) as dias from Renta as r; //diferencia de dias en renta
-
-(select r.rut_cliente,(datediff(r.fecha_devolucion,r.fecha_retiro)*v.precio) as precio from Renta as r inner join Vehiculo as v on r.matricula=v.matricula);  //tengo el precio total y rut del cliente
-
----mysql>  select r.rut_cliente,(datediff(r.fecha_devolucion,r.fecha_retiro)*v.precio) as precio from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where r.estado='Finalizada' and r.fecha_retiro between ('2019-01-01') and ('2019-05-02');
-
-------------------------------------------------------------------------------
-
-4+
-
-1.- Mostrar las ganancias de dinero obtenidos en algun mes de las rentas que ya esten finalizadas (conste que lo unico que importa es la fecha de retiro en esta ocasion)
-
-2.- Mostrar todos los empleados con nombre x que pertenezcan a una sucursal
+----CONSULTAS A LA BASE DE DATOS SRV EN LENGUAJE NATURAL Y MYSQL-----
 
 
-3.- Mostrar los clientes que hayan rentado un auto por 5 meses y hayan sido autos de de un precio mayor a 20000 por dia
+1.- Mostrar las ganancias de dinero obtenidos en algun mes de las rentas que ya esten finalizadas 
 
-4.- Mostrar al cliente que rento el auto el cual tuvo un siniestro
+2.- Mostrar el id de la sucursal y numero de empleados que tengan el cargo de rentador y pertenezcan a una sucursal X
 
-5.- Mostrar en que sucursal cada cliente ah rentado más vehiculos
+3.- Mostrar los clientes que hayan rentado un auto por mas de 6 meses y hayan sido autos de de un precio mayor a 20000 por dia
 
-6.- Mostrar el vehiculo que más han rentado clientes que sean mayores de 50 
+4.- Mostrar el nombre y la edad del cliente que rento el auto, el cual tuvo un siniestro durante cierto periodo de fechas
 
-7.-
+5.- Mostrar un grupo de clientes con su rut, que ah rentado más de 10 vehiculos de acuerdo a todas las sucursales
 
-8.- 
+6.- Mostrar el color y tipo de vehiculo que más han rentado clientes que sean mayores de 40 
 
-9.-
+7.- Mostrar el tipo de vehiculo al cual más le ocurren siniestros en una determinada fecha
 
-10.-
+8.- Mostrar la ciudad de la sucursal a donde más llega cierto marca de vehiculo
 
-11.-
+9.- Mostrar la ciudad y región de la sucursal donde se rentan más vehiculos que tengan un precio menor a X
 
-12.-
+10.- Mostrar el tipo, modelo y marca del vehiculo que este más cercano al promedio de los precios de todos los vehiculos
+
+11.-Mostrar si existen empleados que tengan un nombre que empieze X en la sucursal Y
+
+12.-  Mostrar vehiculos de marca X en la sucursal N, y que no están en la sucursal R
+
+
+-------------------------------CONSULTAS-RESUELTAS----------------------------------
+
+
+
+1.- MODIFICAR , POR QUE ES SOLO WHERE MES = X
+---mysql>  select (datediff(r.fecha_devolucion,r.fecha_retiro)*v.precio) as ganacia_del_mes from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where r.estado='Finalizada' and r.fecha_retiro between ('2019-01-01') and ('2019-05-02');
+
+
+
+
+
+2.-
+select e.id_sucursal, count(e.rut_empleado) as num_empleados from (select rut_empleado, id_sucursal from Empleado where cargo="Rentador" and id_sucursal="10") as e group by e.id_sucursal;
+
+
+3.-
+select * from (select r.rut_cliente, timestampdiff(month, r.fecha_retiro, r.fecha_devolucion ) as meses_rentado from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where v.precio>20000) as sub where sub.meses_rentado>6;
+
+
+4.-
+select sum(v.precio) as ganancia_mes from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where r.estado='Finalizada' and month(r.fecha_retiro)=5;
+
+5.-
+
+
 
 

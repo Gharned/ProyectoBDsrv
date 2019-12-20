@@ -91,6 +91,7 @@ id_siniestro integer,
 matricula varchar(6),
 fecha_siniestro date,
 descripcion text,
+nombre_respon varchar(30),
 primary key(id_siniestro),
 foreign key(matricula) references Vehiculo(matricula) ON UPDATE CASCADE ON DELETE CASCADE
 );

@@ -92,3 +92,5 @@ insert into Nombre_empleado values(5345774,'Michael','Cardenas','Gonzalez');
 insert into Nombre_empleado values(5333333,'Nate','Diaz','Tapia');
 insert into Nombre_empleado values(5888777,'Frosties','Rojas','Cortes');
 
+
+
