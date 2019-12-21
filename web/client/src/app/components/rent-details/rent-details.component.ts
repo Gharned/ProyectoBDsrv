@@ -16,7 +16,7 @@ export class RentDetailsComponent implements OnInit {
   constructor(private rentService:RentService, private activatedRoute:ActivatedRoute, private formBuilder:FormBuilder, private router:Router) { }
 
   ngOnInit() {
-    const params=this.activatedRoute.snapshot.params; //tomo el parametro matricula dentro de la ruta
+    const params=this.activatedRoute.snapshot.params; //tomo el parametro matricula dentro de la ruta (url)
     this.rentService.getReserve(params.matricula).subscribe(
     res=>{
         this.details=res;

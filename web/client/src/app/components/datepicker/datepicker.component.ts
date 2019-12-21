@@ -10,7 +10,7 @@ import { RentService } from 'src/app/services/rent.service';
 })
 export class DatepickerComponent implements OnInit {
 
-  hoveredDate: NgbDate;
+  hoveredDate: NgbDate; 
 
   fromDate: NgbDate;
   toDate: NgbDate;
@@ -18,7 +18,7 @@ export class DatepickerComponent implements OnInit {
   constructor(private calendar: NgbCalendar, public formatter: NgbDateParserFormatter, private rentService:RentService) { //utilizara rent service
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
-    this.rentService.saveFechas(this.fromDate,true); //llamo a rentService para obtener fechas
+    this.rentService.saveFechas(this.fromDate,true); //codigo implementado, llamo a rentService para guardar fechas
     this.rentService.saveFechas(this.toDate,false);
   }
 

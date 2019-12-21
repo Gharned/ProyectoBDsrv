@@ -13,6 +13,7 @@ import { RentService} from './services/rent.service';
 import { RentDetailsComponent } from './components/rent-details/rent-details.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { TimepickerComponent } from './components/timepicker/timepicker.component';
+import { LoginBarComponent } from './components/login-bar/login-bar.component';
 //import { AlertMessageComponent } from './components/alert-message/alert-message.component'; //es un componente
 
 
@@ -25,6 +26,7 @@ import { TimepickerComponent } from './components/timepicker/timepicker.componen
     RentDetailsComponent,
     DatepickerComponent,
     TimepickerComponent,
+    LoginBarComponent,
   //  AlertMessageComponent
   ],
   imports: [

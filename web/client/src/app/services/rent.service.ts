@@ -8,39 +8,33 @@ export class RentService {
 
   INDEX_URI='http://localhost:3000/';
   API_URI='http://localhost:3000/api';
-  store:any; //almacena los datos del formulario sucursal para ser enviada
+  store:any; //almacena los datos del formulario sucursal para ser enviada en el metodo postSearch
   
-  fecha_retiro:any;fecha_devolucion:any;hora_retiro:any;hora_devolucion:any; //retiros y dev
-
+  fecha_retiro:any;fecha_devolucion:any;hora_retiro:any;hora_devolucion:any; //retiros y devoluciones
 
   constructor(private http:HttpClient) { }
 
   storeForm(sucursal:any){ //almacena los datos del formulario para el componente 
-    //comprobar si es que los valores de hora, fecha y sucursales estan completos para buscar
     this.store=sucursal;
   }
 
-  saveFechas(fecha:any, fromOrTo:boolean){ //concatena la fecha o hora enviada
-    //fromOrTo es true cuando es From, es false cuando es To
+
+  //fromOrTo es TRUE cuando es From, es FALSE cuando es To
+  saveFechas(fecha:any, fromOrTo:boolean){ //concatena la fecha enviada a traves del formulario
     if(fromOrTo){ //fecha retiro
-    /*  console.log("esto es from: ");
-      console.log(fecha.year+"-"+fecha.month+"-"+fecha.day);*/
+    /*  console.log("esto es from: ");*/
       this.fecha_retiro=fecha.year+"-"+fecha.month+"-"+fecha.day;
     }else{  //fecha devolucion
-    /*  console.log("esto es To");
-      console.log(fecha.year+"-"+fecha.month+"-"+fecha.day);*/
+    /*  console.log("esto es To");*/
       this.fecha_devolucion=fecha.year+"-"+fecha.month+"-"+fecha.day;
     }
   }
-  
-  saveHoras(horario:any, fromOrTo:boolean){
+  saveHoras(horario:any, fromOrTo:boolean){ //guardo las horas seleccionadas en el formulario
     if(fromOrTo){ //hora retiro
-    /*  console.log("esto es from: ");
-      console.log(horario);*/
+    /*  console.log("esto es from: ");*/
       this.hora_retiro=horario;
     }else{  //hora devolucion
-    /*  console.log("esto es To: ");
-      console.log(horario);*/
+    /*  console.log("esto es To: ");*/
       this.hora_devolucion=horario;
     }
   }
@@ -62,7 +56,7 @@ export class RentService {
   getSucursales(){ //obtengo sucursales
     return this.http.get(this.INDEX_URI);
   }
-  postSearch(){ //se busca en la sucursal
+  postSearch(){ //se busca en la sucursal los vehiculos disponibles
     return this.http.post(`${this.API_URI}/rent/search`,this.store);
   }
   postFilter(customerFilter:any){ //se filtra caracteristicas en el vehiculo

@@ -42,11 +42,10 @@ export class NgbTimeStringAdapter extends NgbTimeAdapter<string> {
 })
 export class TimepickerComponent implements OnInit {
   time: '13:30:00';
-  @Input() tipo; //sera true cuando sea de retiro, false cuando sea devolucion
-  //BUSCAR MANERA DE HACER ESTA MIERDA DEL TIMEPICKER
+  @Input() tipo; //sera TRUE cuando sea de retiro, FALSE cuando sea devolucion
   
   constructor(private rentService:RentService, config: NgbTimepickerConfig) {
-    config.readonlyInputs = true; //permite desabilitar la escritura en los inputs de timepicker
+    config.readonlyInputs = true; //permite deshabilitar la escritura en los inputs de timepicker
    }
   
   ngOnInit() {

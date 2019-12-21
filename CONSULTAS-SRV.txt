@@ -11,7 +11,7 @@
 
 4.- Mostrar el nombre y la edad del cliente que rento el auto, el cual tuvo un siniestro durante cierto periodo de fechas
 
-5.- Mostrar un grupo de clientes con su rut, que ah rentado más de 10 vehiculos de acuerdo a todas las sucursales
+5.- Mostrar un grupo de clientes con su rut, que ha rentado más de 10 vehiculos de acuerdo a todas las sucursales
 
 6.- Mostrar el color y tipo de vehiculo que más han rentado clientes que sean mayores de 40 
 

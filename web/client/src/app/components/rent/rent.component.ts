@@ -35,9 +35,8 @@ export class RentComponent implements OnInit {
     });
   }
 
-  onSubmit(customerData) { //se verifica el formulario enviado
-    // Process checkout data here
-    //VERIFICA QUE TODOS LOS PARAMETROS ESTEN CORRECTOS Y BIEN
+  onSubmit(customerData) { //Al presionar boton de enviar
+    //VERIFICA QUE TODOS LOS PARAMETROS ESTEN SELECCIONADOS Y COMPLETOS
     if(!(this.rentService.getFechaRet()=="") && !(this.rentService.getHoraRet()==undefined) && !(this.rentService.getFechaDev()=="") && !(this.rentService.getHoraDev()==undefined) && !(customerData.local_retiro=="") && !(customerData.local_devolucion=="")){
       customerData.fecha_retiro=this.rentService.getFechaRet()+" "+this.rentService.getHoraRet();
       customerData.fecha_devolucion=this.rentService.getFechaDev()+" "+this.rentService.getHoraDev();
@@ -47,8 +46,7 @@ export class RentComponent implements OnInit {
       this.checkoutForm.reset(); //reseteo del formulario
       this.router.navigate(['/rent/search']); //cuando almacene los valores, quiero enviarlo a la ruta..
       
-    }else{
-      //aqui debe ir un mensaje de error activado con un metodo listener
+    }else{ //Si no esta completo, aqui debe ir un mensaje de error activado con un metodo listener
 
       console.log("no estan llenos todos los datos");
       this.errorAlert=true;
