@@ -1,4 +1,10 @@
-
+<div class="container" style="margin: 0px 0px 20px 0px;">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width:30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            <!--<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>-->
+        </div>
+</div>
 <div class="container">
         <div class="row">
                 <form [formGroup]="checkoutFormFilter" (ngSubmit)="onSubmit(checkoutFormFilter.value)">
@@ -46,34 +52,6 @@
                                         </div>
                                 </div>
                         </div>
-
-                <!--        <div class="table-responsive">
-                                <table class="table table-bordered">
-                                        <tr>
-                                                <th>Matricula</th>
-                                                <th>Tipo</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Color</th>
-                                                <th>Anio</th>
-                                                <th>Kilometraje</th>
-                                                <th>Precio</th>
-                                                <th>Accion</th>
-                                        </tr>
-                                                <tr *ngFor="let veh of vehicle">
-                                                <td> {{veh.matricula}}</td>
-                                                <td> {{veh.tipo}}</td>
-                                                <td> {{veh.marca}}</td>
-                                                <td> {{veh.modelo}}</td>
-                                                <td> {{veh.color}}</td>
-                                                <td> {{veh.anio}}</td>
-                                                <td> {{veh.kilometraje}}</td>
-                                                <td> {{veh.precio | currency}}</td>
-                                                direcciono a una ruta para reservar el vehiculo
-                                                <td><a [routerLink]="['/rent/reserve',veh.matricula]" class="btn btn-danger">Reservar</a></td>
-                                        </tr>
-                                </table> 
-                        </div>-->
                 </div>
         </div>
 </div>

@@ -11,12 +11,15 @@ import {RentService} from  '../../services/rent.service';
 })
 export class VehiclesListComponent implements OnInit {
 
+  //ATTIBUTES
   vehicle:any;
   checkoutFormFilter:any;
+  progressBar:number;
 
   constructor(private rentService: RentService, private formBuilder:FormBuilder) { }
 
   ngOnInit() {
+    this.progressBar=0;
     this.rentService.postSearch().subscribe( //se busca en la sucursal
       res=>{
         this.vehicle=res;  //almaceno la respuesta en vehiculo
@@ -31,7 +34,6 @@ export class VehiclesListComponent implements OnInit {
       kilometraje:""
     });  
   }
-  
 
   onSubmit(customerFilter) { //se verifica el formulario de filtro
     // Process checkout data here
