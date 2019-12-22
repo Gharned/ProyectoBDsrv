@@ -17,7 +17,7 @@
 
 7.- Mostrar el tipo de vehiculo al cual más le ocurren siniestros en una determinada fecha
 
-8.- Mostrar la ciudad de la sucursal a donde más llega cierto marca de vehiculo
+8.- Mostrar la ciudad de la sucursal a donde más llega cierta marca de vehiculo
 
 9.- Mostrar la ciudad y región de la sucursal donde se rentan más vehiculos que tengan un precio menor a X
 
@@ -33,10 +33,7 @@
 
 
 1.- MODIFICAR , POR QUE ES SOLO WHERE MES = X
----mysql>  select (datediff(r.fecha_devolucion,r.fecha_retiro)*v.precio) as ganacia_del_mes from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where r.estado='Finalizada' and r.fecha_retiro between ('2019-01-01') and ('2019-05-02');
-
-
-
+select (datediff(r.fecha_devolucion,r.fecha_retiro)*v.precio) as ganacia_del_mes from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where r.estado='Finalizada' and r.fecha_retiro between ('2019-01-01') and ('2019-05-02');
 
 
 2.-
@@ -50,7 +47,33 @@ select * from (select r.rut_cliente, timestampdiff(month, r.fecha_retiro, r.fech
 4.-
 select sum(v.precio) as ganancia_mes from Renta as r inner join Vehiculo as v on r.matricula=v.matricula where r.estado='Finalizada' and month(r.fecha_retiro)=5;
 
+
 5.-
+select r.rut_cliente, count(r.rut_cliente) as veces_renta from Renta as r group by r.rut_cliente having (veces_renta)>10;
+
+
+6.-
+select v.color, v.tipo from Vehiculo as v inner join Renta as r on v.matricula=r.matricula inner join ( select sub_1.rut_cliente, veces_renta from (select r.rut_cliente, count(r.rut_cliente) as veces_renta from Renta as r group by r.rut_cliente) as sub_1 inner join (select subf.rut_cliente, subf.edad from (select rut_cliente, timestampdiff(YEAR,fecha_nac,CURDATE()) as edad from Cliente) as subf where subf.edad>21) as edad_elegida on sub_1.rut_cliente=edad_elegida.rut_cliente  where sub_1.veces_renta=(select max(sub_2.veces_renta) as max_rentado from (select count(r.rut_cliente) as veces_renta from Renta as r group by r.rut_cliente) as sub_2) ) as mega_sub  on r.rut_cliente=mega_sub.rut_cliente;
+
+
+7.-
+select tipo from Siniestro as s inner join Vehiculo as v on s.matricula=v.matricula group by v.tipo having count(v.matricula)=(select max(sub_1.vehiculos) from (select count(v.matricula) as vehiculos from (select * from Siniestro where fecha_siniestro="2019-01-01") as s inner join Vehiculo as v on s.matricula=v.matricula group by v.tipo) as sub_1);
+
+
+8.-
+
+select v.id_sucursal, count(v.matricula) as cantidad_marca from (select * from Vehiculo where marca="Toyota") as v group by v.id_sucursal having cantidad_marca=(select max(sub_1.cantidad_marca) from (select count(v.matricula) as cantidad_marca from (select * from Vehiculo where marca="Toyota") as v group by v.id_sucursal) as sub_1);
+
+9.-
+
+
+
+
+
+
+
+
+
 
 
 

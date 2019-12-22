@@ -87,7 +87,7 @@ foreign key(rut_empleado) references Empleado(rut_empleado) ON UPDATE CASCADE ON
 );
 
 create table Siniestro(
-id_siniestro integer,
+id_siniestro integer auto_increment,
 matricula varchar(6),
 fecha_siniestro date,
 descripcion text,

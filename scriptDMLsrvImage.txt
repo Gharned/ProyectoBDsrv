@@ -61,15 +61,28 @@ insert into Vehiculo(matricula, id_sucursal, anio, color, marca, modelo, precio,
 insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('ALCZ25', 90, 2019,'verde', 'Toyota', 'Hiace', 23000, 'Furgoneta', 0,3450, 'https://files.encuentra24.com/large/cr/14/80/81/98/14808198_226389.jpg');
 insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('LKKA19', 80, 2019,'negro', 'Kia', 'Sportage C', 30000, 'SUV', 0,950, 'https://assets.maxterauto.com/vo/imagenes/h_img_58_33771_541008_1562781273.jpg');
 insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('AADQ37', 90, 2019,'rojo', 'Chevrolet', 'Tracker', 31000, 'SUV', 1,1550, 'https://www.chevrolet.cl/content/dam/chevrolet/south-america/chile/espanol/index/suv-and-crossovers/2019-tracker/colorizer/01-images/chevrolet_chile_tracker_rojo.jpg?imwidth=600');
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('RX3099', 10, 2018,'rojo', 'Ferrari', '488 Spider', 1000000, 'Automovil Deportivo', 0,3736, 'https://chileautos.pxcrush.net/chileautos/auto/particular/qv6npudepdwwss5qfvooazky4.jpg?pxc_method=fit&pxc_size=1795%2c1195');
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('LP9276', 10, 2016,'rojo', 'Lamborghini', 'LP700-4', 1500000, 'Automovil Deportivo', 0,6200, 'https://chileautos.pxcrush.net/chileautos/auto/particular/q2r8dez8vhixdc9d5jedbm6e7.jpg?pxc_method=fit&pxc_size=1795%2c1195');
+
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('FN4512', 40, 2017,'plomo', 'Toyota', 'Hilux 2.4D', 50000, 'SUV', 1,5320, 'https://chileautos.pxcrush.net/chileautos/auto/particular/04osery3pvnd0meu84yyy84e3.jpg?pxc_method=fit&pxc_size=1795%2c1195');
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('AG2513', 50, 2016,'blanco', 'Toyota', '4Runner', 43000, 'SUV', 1,1200, 'https://chileautos.pxcrush.net/chileautos/auto/automotora/fakbxqurhkx7t4saaxxmtxqq4.jpg?pxc_method=fit&pxc_size=1795%2c1195');
+insert into Vehiculo(matricula, id_sucursal, anio,color, marca, modelo, precio, tipo, estado, kilometraje, image_url) values('JD7326', 20, 2017,'blanco', 'BMW', 'HP4', 240000, 'Motocicleta Deportiva', 1,5300, 'https://a.mcdn.es/mnet_ft//BMW/HP4/6552/32448MG.jpg');
 
 
 
+
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19941255, 'FN4512', 'Finalizada', 40,'Antofagasta', '2014-03-13 06:50:00', 60,'Coquimbo','2014-04-01 14:35:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19328308, 'AG2513', 'Finalizada', 50,'Atacama', '2014-05-10 09:12:00', 30,'Santiago','2014-06-12 18:54:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19941255, 'JD7326', 'Finalizada', 20,'Valparaiso', '2016-07-18 13:25:00', 50,'Atacama','2016-09-08 15:32:00');
 
 insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19941255, 'ALOM25', 'En Curso', 10, 'Valparaiso', '2019-08-02 13:00:00', 10, 'Valparaiso','2019-11-30 08:30:00');
 insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19887114, 'MOLA77', 'Cancelada', 70,'Maule', '2019-05-01 11:00:00', 10, 'Valparaiso','2019-07-20 08:30:00');
 insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19824957, 'APEX21', 'Finalizada', 70,'Maule', '2019-01-01 11:00:00', 30,'Santiago','2019-08-13 08:45:00');
 insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(20343124, 'UKWO27', 'En Curso', 60,'Coquimbo', '2019-04-05 15:00:00', 60,'Coquimbo','2019-07-10 14:30:00');
 insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19328308, 'AADQ37', 'Finalizada', 90,'Araucania', '2019-05-05 14:30:00', 90,'Araucania','2019-10-20 17:15:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19941255, 'DFAR54', 'Finalizada', 70,'Maule', '2019-12-20 09:30:00', 90,'Araucania','2019-12-25 17:15:00');
+insert into Renta(rut_cliente, matricula, estado, local_retiro, region_retiro, fecha_retiro, local_devolucion, region_devolucion, fecha_devolucion) values(19824957, 'LKKA19', 'Finalizada', 10,'Valparaiso', '2019-12-21 07:15:00', 60,'Coquimbo','2020-01-01 21:45:00');
+
 
 
 insert into Empleado values(5699666,10,'eliverto@gmail.com','Rentador','eli1063');
@@ -91,6 +104,11 @@ insert into Nombre_empleado values(5663865,'Antonio','Sanchez','Vargas');
 insert into Nombre_empleado values(5345774,'Michael','Cardenas','Gonzalez');
 insert into Nombre_empleado values(5333333,'Nate','Diaz','Tapia');
 insert into Nombre_empleado values(5888777,'Frosties','Rojas','Cortes');
+
+insert into Siniestro(matricula,fecha_siniestro,descripcion,nombre_respon) values('FN4512','2014-03-15','Auto robado por delincuentes, en Antofagasta','Alex Toro');
+insert into Siniestro(matricula,fecha_siniestro,descripcion,nombre_respon) values('AG2513','2014-06-01','Choque de vehiculo con responsable lesionado, cerca de Atacama','Juan Valenzuela');
+insert into Siniestro(matricula,fecha_siniestro,descripcion,nombre_respon) values('JD7326','2016-08-20','Choque de motocicleta, lesionado sin una extremidad, cerca de Valparaiso','Alex Toro');
+
 
 
 
